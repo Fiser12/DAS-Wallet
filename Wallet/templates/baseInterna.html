@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+    {% load staticfiles %}
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,16 +9,24 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin - Bootstrap Admin Template</title>
+    <title>Wallet</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="../Wallet/static/Wallet/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static "Wallet/css/bootstrap.min.css" %}" rel="stylesheet">
+    <link href="{% static "Wallet/css/login-register.css" %}" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="../Wallet/static/Wallet/css/sb-admin.css" rel="stylesheet">
+    <link href="{% static "Wallet/css/sb-admin.css"%}" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="../Wallet/static/Wallet/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="{% static "Wallet/font-awesome/css/font-awesome.min.css"%}" rel="stylesheet" type="text/css">
+    <!-- jQuery -->
+    <script src="{% static "Wallet/js/jquery.js"%}"></script>
+    <script src="{% static "Wallet/js/login-register.js"%}"></script>
+    <script src="{% static "Wallet/js/jquery-1.10.2.js"%}"></script>
+    <script src="{% static "Wallet/js/jquery-ui.custom.min.js"%}"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{% static "Wallet/js/bootstrap.min.js"%}"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -28,9 +36,7 @@
     <![endif]-->
 
 </head>
-
 <body>
-
     <div id="wrapper">
 
         <!-- Navigation -->
@@ -203,14 +209,7 @@
                             Blank Page
                             <small>Subheading</small>
                         </h1>
-                        <ol class="breadcrumb">
-                            <li>
-                                <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
-                            </li>
-                            <li class="active">
-                                <i class="fa fa-file"></i> Blank Page
-                            </li>
-                        </ol>
+                        {% block content %}{% endblock content %}
                     </div>
                 </div>
                 <!-- /.row -->
@@ -225,11 +224,10 @@
     <!-- /#wrapper -->
 
     <!-- jQuery -->
-    <script src="../Wallet/static/Wallet/js/jquery.js"></script>
+    <script src="../static/Wallet/js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="../Wallet/static/Wallet/js/bootstrap.min.js"></script>
-
+    <script src="../static/Wallet/js/bootstrap.min.js"></script>
 </body>
 
 </html>

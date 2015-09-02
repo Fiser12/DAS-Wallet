@@ -55,6 +55,6 @@ def register_user(request):
     args = {}
     args.update(csrf(request))
     args['form'] = UserCreationForm()
-    return render_to_response('register.html', args)
+    return render_to_response('login.html', args)
 def register_success(request):
     return render_to_response('register_success.html')
