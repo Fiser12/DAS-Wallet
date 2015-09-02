@@ -27,4 +27,14 @@ urlpatterns = patterns('',
 url(r'^api/', include(router.urls)),
 url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 url(r'^admin/', include(admin.site.urls)),
+
+url(r'^accounts/login/$', 'Wallet.views.login'),
+url(r'^accounts/auth/$', 'Wallet.views.auth_view'),
+url(r'^accounts/logout/$', 'Wallet.views.logout'),
+url(r'^accounts/loggedin/$', 'Wallet.views.loggedin'),
+url(r'^accounts/invalid/$', 'Wallet.views.invalid_login'),
+url(r'^accounts/register/$', 'Wallet.views.register_user'),
+url(r'^accounts/register_success/$', 'Wallet.views.register_success'),
+
 )
+

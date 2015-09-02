@@ -26,8 +26,6 @@ SECRET_KEY = '2iq5bsc8sk011^002-&ki6$l9fu2!wo=+37!t5wm)!my(y*yq6'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
-
 # Application definition
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,

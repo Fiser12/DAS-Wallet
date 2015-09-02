@@ -1,5 +1,6 @@
+from django.contrib.auth.models import User
 from django.db import models
-
+from django.forms import ModelForm
 class Cuenta(models.Model):
     owner = models.ForeignKey('auth.User', related_name='user')
     id = models.AutoField(primary_key=True)
