@@ -1,7 +1,4 @@
 from django.contrib.auth.decorators import login_required
-from django.template import RequestContext
-from django.views.generic import ListView
-from django.views.generic.edit import CreateView
 from django.views.generic.edit import UpdateView
 from django.views.generic.edit import DeleteView
 from django.shortcuts import render_to_response
@@ -12,7 +9,6 @@ from django.core.context_processors import csrf
 from django.contrib import auth
 from django.contrib.auth.forms import UserCreationForm
 from django.core.urlresolvers import reverse_lazy
-from django.template import RequestContext
 
 from django.http import HttpResponseRedirect
 ########################
@@ -140,5 +136,20 @@ class CategoriaDelete(DeleteView):
 def CuentaPanel(request, id):
     cuenta = Cuenta.objects.get(id=id)
     listaApuntes = Apunte.objects.filter(cuentaOrigen=cuenta)
+    return render_to_response('cuentas.html',
+                              {'full_name': request.user.username, 'object_list': Cuenta.objects.filter(owner=request.user.id), 'cuenta': cuenta})
+def GetTendencias(request):
+    return render_to_response('tendencias.html',
+                              {'full_name': request.user.username, 'object_list': Cuenta.objects.filter(owner=request.user.id)})
+def GetPatrimonio(request):
+    return render_to_response('patrimonioNeto.html',
+                              {'full_name': request.user.username, 'object_list': Cuenta.objects.filter(owner=request.user.id)})
+def GetCategorias(request):
     return render_to_response('categoria.html',
+                              {'full_name': request.user.username, 'object_list': Cuenta.objects.filter(owner=request.user.id)})
+def GetEstadisticas(request):
+    return render_to_response('estadistica.html',
+                              {'full_name': request.user.username, 'object_list': Cuenta.objects.filter(owner=request.user.id)})
+def CrearApunte(request):
+    return render_to_response('crearApunte.html',
                               {'full_name': request.user.username, 'object_list': Cuenta.objects.filter(owner=request.user.id)})

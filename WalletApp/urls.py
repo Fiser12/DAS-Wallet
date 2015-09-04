@@ -39,7 +39,11 @@ url(r'^accounts/register_success/$', 'Wallet.views.register_success'),
 url(r'^createApunte/$', 'Wallet.views.ApunteCreate'),
 url(r'^createCategoria/$', 'Wallet.views.CategoriaCreate'),
 url(r'^createCuenta/$', 'Wallet.views.CuentaCreate'),
-url(r'^cuenta/(?P<id>\d+)/$', 'Wallet.views.CuentaPanel', name='cuenta-reports'),
-
+url(r'^reportes/tendencias', 'Wallet.views.GetTendencias'),
+url(r'^reportes/patrimonio', 'Wallet.views.GetPatrimonio'),
+url(r'^reportes/categorias', 'Wallet.views.GetCategorias'),
+url(r'^reportes/estadisticas', 'Wallet.views.GetEstadisticas'),
+url(r'^cuenta/(?P<id>\d+)/$', 'Wallet.views.CuentaPanel'),
+url(r'^apunte/crear/', 'Wallet.views.CrearApunte')
 )
 
