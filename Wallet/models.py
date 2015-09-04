@@ -1,11 +1,15 @@
+from audioop import reverse
 from django.contrib.auth.models import User
 from django.db import models
-from django.forms import ModelForm
+
 class Cuenta(models.Model):
     owner = models.ForeignKey('auth.User', related_name='user')
     id = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=200)
     saldoInicial = models.FloatField()
+    def get_absolute_url(self):
+        return reverse('author-detail', kwargs={'pk': self.pk})
+
 class Etiqueta(models.Model):
     id = models.AutoField(primary_key=True)
     titulo = models.CharField(max_length=200)

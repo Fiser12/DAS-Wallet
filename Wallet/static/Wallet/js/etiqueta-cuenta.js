@@ -7,50 +7,27 @@
  * 
  */
 function showRegisterForm(){
-    $('.loginBox').fadeOut('fast',function(){
+    $('.sendBox').fadeOut('fast',function(){
         $('.registerBox').fadeIn('fast');
         $('.login-footer').fadeOut('fast',function(){
             $('.register-footer').fadeIn('fast');
         });
-        $('.modal-title').html('Registrar');
+        $('.modal-title').html('Guardar');
     }); 
     $('.error').removeClass('alert alert-danger').html('');
        
 }
 function showLoginForm(){
     $('#loginModal .registerBox').fadeOut('fast',function(){
-        $('.loginBox').fadeIn('fast');
+        $('.sendBox').fadeIn('fast');
         $('.register-footer').fadeOut('fast',function(){
             $('.login-footer').fadeIn('fast');    
         });
         
-        $('.modal-title').html('Iniciar Sesión');
+        $('.modal-title').html('Guardar');
     });       
      $('.error').removeClass('alert alert-danger').html(''); 
 }
-function showCuentaForm(){
-    $('#loginModal .etiquetaBox').fadeOut('fast',function(){
-        $('.cuentaBox').fadeIn('fast');
-        $('.register-footer').fadeOut('fast',function(){
-            $('.login-footer').fadeIn('fast');    
-        });
-        
-        $('.modal-title').html('Crear Cuenta');
-    });       
-     $('.error').removeClass('alert alert-danger').html(''); 
-}
-function showEtiquetaForm(){
-    $('.cuentaBox').fadeOut('fast',function(){
-        $('.etiquetaBox').fadeIn('fast');
-        $('.login-footer').fadeOut('fast',function(){
-            $('.register-footer').fadeIn('fast');
-        });
-        $('.modal-title').html('Crear Etiqueta');
-    }); 
-    $('.error').removeClass('alert alert-danger').html('');
-       
-}
-
 function openLoginModal(){
     showLoginForm();
     setTimeout(function(){

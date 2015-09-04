@@ -16,7 +16,7 @@ Including another URLconf
 from django.conf.urls import url, include, patterns
 from django.contrib import admin
 from rest_framework.routers import DefaultRouter
-from Wallet.views import CuentaViewSet, ApunteViewSet, EtiquetaViewSet
+from Wallet.views import CuentaViewSet, ApunteViewSet, EtiquetaViewSet, ApunteCreate, CuentaCreate
 
 router = DefaultRouter()
 router.register(r'cuenta', CuentaViewSet)
@@ -24,6 +24,7 @@ router.register(r'apunte', ApunteViewSet)
 router.register(r'etiqueta', EtiquetaViewSet)
 
 urlpatterns = patterns('',
+url(r'^$', 'Wallet.views.login'),
 url(r'^api/', include(router.urls)),
 url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 url(r'^admin/', include(admin.site.urls)),
@@ -35,6 +36,9 @@ url(r'^accounts/loggedin/$', 'Wallet.views.loggedin'),
 url(r'^accounts/invalid/$', 'Wallet.views.invalid_login'),
 url(r'^accounts/register/$', 'Wallet.views.register_user'),
 url(r'^accounts/register_success/$', 'Wallet.views.register_success'),
+url(r'^createApunte/$', 'Wallet.views.ApunteCreate'),
+url(r'^createEtiqueta/$', 'Wallet.views.CuentaCreate'),
+url(r'^createCuenta/$', 'Wallet.views.EtiquetaCreate'),
 
 )
 
