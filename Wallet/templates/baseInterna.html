@@ -57,10 +57,10 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-fw fa-gear"></i> <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a data-toggle="modal" href="javascript:void(0)" onclick="openLoginModal();"><i class="fa fa-fw fa-user"></i> Crear Cuenta</a>
+                            <a data-toggle="modal" href="javascript:void(0)" onclick="openLoginModal();"> Crear Cuenta</a>
                         </li>
                         <li>
-                            <a data-toggle="modal" href="javascript:void(0)" onclick="openRegisterModal();"><i class="fa fa-fw fa-envelope"></i> Crear Etiqueta</a>
+                            <a data-toggle="modal" href="javascript:void(0)" onclick="openRegisterModal();"> Crear Categoría</a>
                         </li>
                     </ul>
                 </li>
@@ -89,7 +89,7 @@
                         <ul id="cuenta" class="collapse in">
                             {% for cuenta in object_list %}
                             <li>
-                                <a href="#"><i class="fa fa-fw fa-desktop"></i> {{ cuenta.nombre }}</a>
+                                <a href="/cuenta/{{ cuenta.id }}"><i class="fa fa-fw fa-desktop"></i> {{ cuenta.nombre }}</a>
                             </li>
                             {% endfor %}
                         </ul>
@@ -137,7 +137,7 @@
                         <div class="box">
                              <div class="content">
                                 <div class="form sendBox">
-                                    <form action="/createApunte/" method="post">{% csrf_token %}
+                                    <form action="/createCuenta/" method="post">{% csrf_token %}
                                         <input id="nombre" class="form-control" type="text" placeholder="Nombre" name="nombre">
                                         <input id="saldoInicial" class="form-control" type="text" placeholder="Saldo" name="saldoInicial">
                                         <input class="btn btn-default btn-login" type="submit" value="Guardar">
@@ -148,7 +148,7 @@
                         <div class="box">
                             <div class="content registerBox" style="display:none;">
                                 <div class="form">
-                                    <form method="post" action="/createEtiqueta/">{% csrf_token %}
+                                    <form method="post" action="/createCategoria/">{% csrf_token %}
                                         <input id="titulo" class="form-control" type="text" placeholder="Nombre" name="titulo">
                                         <input class="btn btn-default btn-register" type="submit" value="Guardar">
                                     </form>
@@ -161,12 +161,6 @@
           </div>
 
     <!-- /#wrapper -->
-
-    <!-- jQuery -->
-    <script src="../static/Wallet/js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="../static/Wallet/js/bootstrap.min.js"></script>
 </body>
 
 </html>

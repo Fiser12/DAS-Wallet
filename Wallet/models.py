@@ -6,11 +6,11 @@ class Cuenta(models.Model):
     owner = models.ForeignKey('auth.User', related_name='user')
     id = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=200)
-    saldoInicial = models.FloatField()
+    saldoInicial = models.FloatField(default=0)
     def get_absolute_url(self):
-        return reverse('author-detail', kwargs={'pk': self.pk})
+        return reverse('author-detail', kwargs={'pk': self.nombre})
 
-class Etiqueta(models.Model):
+class Categoria(models.Model):
     id = models.AutoField(primary_key=True)
     titulo = models.CharField(max_length=200)
 class Apunte(models.Model):
@@ -21,4 +21,4 @@ class Apunte(models.Model):
     cuentaDestino = models.ForeignKey(Cuenta, related_name="cuentaDestino")
     ingresoGastoTransferencia = models.IntegerField()
     fecha = models.DateTimeField()
-    etiquetas = models.ManyToManyField(Etiqueta, related_name="etiquetas")
+    categoria = models.ForeignKey(Categoria, related_name="categoria")

@@ -28,28 +28,6 @@ function showLoginForm(){
     });       
      $('.error').removeClass('alert alert-danger').html(''); 
 }
-function showCuentaForm(){
-    $('#loginModal .etiquetaBox').fadeOut('fast',function(){
-        $('.cuentaBox').fadeIn('fast');
-        $('.register-footer').fadeOut('fast',function(){
-            $('.login-footer').fadeIn('fast');    
-        });
-        
-        $('.modal-title').html('Crear Cuenta');
-    });       
-     $('.error').removeClass('alert alert-danger').html(''); 
-}
-function showEtiquetaForm(){
-    $('.cuentaBox').fadeOut('fast',function(){
-        $('.etiquetaBox').fadeIn('fast');
-        $('.login-footer').fadeOut('fast',function(){
-            $('.register-footer').fadeIn('fast');
-        });
-        $('.modal-title').html('Crear Etiqueta');
-    }); 
-    $('.error').removeClass('alert alert-danger').html('');
-       
-}
 
 function openLoginModal(){
     showLoginForm();
@@ -63,31 +41,4 @@ function openRegisterModal(){
     setTimeout(function(){
         $('#loginModal').modal('show');    
     }, 230);
-    
 }
-
-function loginAjax(){
-    /*   Remove this comments when moving to server
-    $.post( "/login", function( data ) {
-            if(data == 1){
-                window.location.replace("/home");            
-            } else {
-                 shakeModal(); 
-            }
-        });
-    */
-
-/*   Simulate error message from the server   */
-     shakeModal();
-}
-
-function shakeModal(){
-    $('#loginModal .modal-dialog').addClass('shake');
-             $('.error').addClass('alert alert-danger').html("Invalid email/password combination");
-             $('input[type="password"]').val('');
-             setTimeout( function(){ 
-                $('#loginModal .modal-dialog').removeClass('shake'); 
-    }, 1000 ); 
-}
-
-   

@@ -12,7 +12,7 @@ function showRegisterForm(){
         $('.login-footer').fadeOut('fast',function(){
             $('.register-footer').fadeIn('fast');
         });
-        $('.modal-title').html('Guardar');
+        $('.modal-title').html('Crear Categoría');
     }); 
     $('.error').removeClass('alert alert-danger').html('');
        
@@ -24,7 +24,7 @@ function showLoginForm(){
             $('.login-footer').fadeIn('fast');    
         });
         
-        $('.modal-title').html('Guardar');
+        $('.modal-title').html('Crear Cuenta');
     });       
      $('.error').removeClass('alert alert-danger').html(''); 
 }

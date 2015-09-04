@@ -6,14 +6,14 @@ from django.views.generic.edit import UpdateView
 from django.views.generic.edit import DeleteView
 from django.shortcuts import render_to_response
 from rest_framework import viewsets
-from .models import Cuenta, Apunte, Etiqueta
-from .serializers import CuentaSerializer, ApunteSerializer, EtiquetaSerializer
+from .models import Cuenta, Apunte, Categoria
+from .serializers import CuentaSerializer, ApunteSerializer, CategoriaSerializer
 from django.core.context_processors import csrf
 from django.contrib import auth
-from django.http import HttpResponseRedirect
 from django.contrib.auth.forms import UserCreationForm
 from django.core.urlresolvers import reverse_lazy
-from forms import ApunteForm
+from django.template import RequestContext
+
 from django.http import HttpResponseRedirect
 ########################
 #######API-REST#########
@@ -24,9 +24,9 @@ class CuentaViewSet(viewsets.ModelViewSet):
 class ApunteViewSet(viewsets.ModelViewSet):
     serializer_class = ApunteSerializer
     queryset = Apunte.objects.all()
-class EtiquetaViewSet(viewsets.ModelViewSet):
-    serializer_class = EtiquetaSerializer
-    queryset = Etiqueta.objects.all()
+class CategoriaViewSet(viewsets.ModelViewSet):
+    serializer_class = CategoriaSerializer
+    queryset = Categoria.objects.all()
 
 #########################
 ######USER FUNTIONS######
@@ -82,25 +82,23 @@ def ApunteCreate(request):
     cuentaDestino = request.POST.get('cuentaDestino','')
     ingresoGastoTransferencia = request.POST.get('ingresoGastoTransferencia','')
     fecha = request.POST.get('fecha','')
-    etiquetas = request.POST.get('etiquetas','')
-    return render_to_response('login.html', c)
+    categoria = request.POST.get('categoria','')
 
-@login_required
+    return render_to_response('loggedin.html', c)
+
 def CuentaCreate(request):
-    c = {}
-    c.update(csrf(request))
+    nombre = request.POST.get('nombre','')
+    saldoInicial = request.POST.get('saldoInicial','')
+    idUser = request.user
+    cuenta = Cuenta(nombre=nombre, owner=idUser, saldoInicial=saldoInicial)
+    cuenta.save()
+    return HttpResponseRedirect('/accounts/loggedin/')
 
-    nombre = c.POST.get('nombre','')
-    saldoInicial = c.POST.get('saldoInicial','')
-    return render_to_response('login.html', c)
-
-@login_required
-def EtiquetaCreate(request):
-    c = {}
-    c.update(csrf(request))
-
-    titulo = c.POST.get('titulo','')
-    return render_to_response('login.html', c)
+def CategoriaCreate(request):
+    nombre = request.POST.get('titulo','')
+    eti = Categoria(titulo=nombre)
+    eti.save()
+    return HttpResponseRedirect('/accounts/loggedin/')
 
 #########################
 #####UPDATE FUNTIONS#####
@@ -108,7 +106,7 @@ def EtiquetaCreate(request):
 @login_required
 class ApunteUpdate(UpdateView):
     model = Apunte
-    fields = ['descripcion', 'dinero', 'cuentaOrigen', 'cuentaDestino', 'ingresoGastoTransferencia', 'fecha', 'etiquetas']
+    fields = ['descripcion', 'dinero', 'cuentaOrigen', 'cuentaDestino', 'ingresoGastoTransferencia', 'fecha', 'categoria']
     template_name_suffix = '_update_form'
 @login_required
 class CuentaUpdate(UpdateView):
@@ -116,8 +114,8 @@ class CuentaUpdate(UpdateView):
     fields = ['owner', 'nombre', 'saldoInicial']
     template_name_suffix = '_update_form'
 @login_required
-class EtiquetaUpdate(UpdateView):
-    model = Etiqueta
+class CategoriaUpdate(UpdateView):
+    model = Categoria
     fields = ['titulo']
     template_name_suffix = '_update_form'
 
@@ -133,6 +131,14 @@ class CuentaDelete(DeleteView):
     model = Cuenta
     success_url = reverse_lazy('cuenta-list')
 @login_required
-class EtiquetaDelete(DeleteView):
-    model = Etiqueta
-    success_url = reverse_lazy('etiqueta-list')
+class CategoriaDelete(DeleteView):
+    model = Categoria
+    success_url = reverse_lazy('categoria-list')
+#########################
+######GET FUNTIONS#######
+#########################
+def CuentaPanel(request, id):
+    cuenta = Cuenta.objects.get(id=id)
+    listaApuntes = Apunte.objects.filter(cuentaOrigen=cuenta)
+    return render_to_response('categoria.html',
+                              {'full_name': request.user.username, 'object_list': Cuenta.objects.filter(owner=request.user.id)})

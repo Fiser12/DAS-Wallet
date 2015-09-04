@@ -16,12 +16,12 @@ Including another URLconf
 from django.conf.urls import url, include, patterns
 from django.contrib import admin
 from rest_framework.routers import DefaultRouter
-from Wallet.views import CuentaViewSet, ApunteViewSet, EtiquetaViewSet, ApunteCreate, CuentaCreate
+from Wallet.views import CuentaViewSet, ApunteViewSet, CategoriaViewSet
 
 router = DefaultRouter()
 router.register(r'cuenta', CuentaViewSet)
 router.register(r'apunte', ApunteViewSet)
-router.register(r'etiqueta', EtiquetaViewSet)
+router.register(r'categoria', CategoriaViewSet)
 
 urlpatterns = patterns('',
 url(r'^$', 'Wallet.views.login'),
@@ -37,8 +37,9 @@ url(r'^accounts/invalid/$', 'Wallet.views.invalid_login'),
 url(r'^accounts/register/$', 'Wallet.views.register_user'),
 url(r'^accounts/register_success/$', 'Wallet.views.register_success'),
 url(r'^createApunte/$', 'Wallet.views.ApunteCreate'),
-url(r'^createEtiqueta/$', 'Wallet.views.CuentaCreate'),
-url(r'^createCuenta/$', 'Wallet.views.EtiquetaCreate'),
+url(r'^createCategoria/$', 'Wallet.views.CategoriaCreate'),
+url(r'^createCuenta/$', 'Wallet.views.CuentaCreate'),
+url(r'^cuenta/(?P<id>\d+)/$', 'Wallet.views.CuentaPanel', name='cuenta-reports'),
 
 )
 

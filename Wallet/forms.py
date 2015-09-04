@@ -1,4 +1,4 @@
-from Wallet.models import Apunte, Cuenta, Etiqueta
+from Wallet.models import Apunte, Cuenta, Categoria
 
 __author__ = 'Fiser'
 from django import forms
