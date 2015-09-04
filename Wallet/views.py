@@ -88,13 +88,13 @@ def CuentaCreate(request):
     idUser = request.user
     cuenta = Cuenta(nombre=nombre, owner=idUser, saldoInicial=saldoInicial)
     cuenta.save()
-    return HttpResponseRedirect('/accounts/loggedin/')
+    return HttpResponseRedirect('/cuenta/editar/')
 
 def CategoriaCreate(request):
     nombre = request.POST.get('titulo','')
-    eti = Categoria(titulo=nombre)
+    eti = Categoria(titulo=nombre, createdBy=request.user)
     eti.save()
-    return HttpResponseRedirect('/accounts/loggedin/')
+    return HttpResponseRedirect('/categoria/editar/')
 
 #########################
 #####UPDATE FUNTIONS#####
@@ -123,13 +123,13 @@ class ApunteDelete(DeleteView):
     model = Apunte
     success_url = reverse_lazy('apunte-list')
 @login_required
-class CuentaDelete(DeleteView):
-    model = Cuenta
-    success_url = reverse_lazy('cuenta-list')
+def CuentaDelete(request, id):
+    Cuenta.objects.get(id=id).delete()
+    return HttpResponseRedirect('/cuenta/editar/')
 @login_required
-class CategoriaDelete(DeleteView):
-    model = Categoria
-    success_url = reverse_lazy('categoria-list')
+def CategoriaDelete(request, id):
+    Categoria.objects.get(id=id).delete()
+    return HttpResponseRedirect('/categoria/editar/')
 #########################
 ######GET FUNTIONS#######
 #########################
@@ -150,6 +150,9 @@ def GetCategorias(request):
 def GetEstadisticas(request):
     return render_to_response('estadistica.html',
                               {'full_name': request.user.username, 'object_list': Cuenta.objects.filter(owner=request.user.id)})
-def CrearApunte(request):
-    return render_to_response('crearApunte.html',
+def EditarCuentas(request):
+    return render_to_response('editarCuentas.html',
                               {'full_name': request.user.username, 'object_list': Cuenta.objects.filter(owner=request.user.id)})
+def EditarCategorias(request):
+    return render_to_response('editarCategorias.html',
+                              {'full_name': request.user.username, 'object_list': Cuenta.objects.filter(owner=request.user.id), 'categoria_list': Categoria.objects.filter(createdBy=request.user.id)})

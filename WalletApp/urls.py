@@ -44,6 +44,9 @@ url(r'^reportes/patrimonio', 'Wallet.views.GetPatrimonio'),
 url(r'^reportes/categorias', 'Wallet.views.GetCategorias'),
 url(r'^reportes/estadisticas', 'Wallet.views.GetEstadisticas'),
 url(r'^cuenta/(?P<id>\d+)/$', 'Wallet.views.CuentaPanel'),
-url(r'^apunte/crear/', 'Wallet.views.CrearApunte')
+url(r'^cuenta/editar/', 'Wallet.views.EditarCuentas'),
+url(r'^categoria/editar/', 'Wallet.views.EditarCategorias'),
+url(r'^cuenta/delete/(?P<id>\d+)/$', 'Wallet.views.CuentaDelete'),
+url(r'^categoria/delete/(?P<id>\d+)/$', 'Wallet.views.CategoriaDelete')
 )
 

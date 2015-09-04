@@ -57,16 +57,17 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-fw fa-gear"></i> <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a data-toggle="modal" href="javascript:void(0)" onclick="openLoginModal();"> Crear Cuenta</a>
+                            <a href="/cuenta/editar/"> Editar Cuenta</a>
                         </li>
                         <li>
-                            <a data-toggle="modal" href="javascript:void(0)" onclick="openRegisterModal();"> Crear Categoría</a>
+                            <a href="/categoria/editar/">  Editar Categoría</a>
                         </li>
                     </ul>
                 </li>
 
                 <li class="dropdown">
-                    <a href="/apunte/crear/" class="dropdown-toggle"><i class="fa fa-fw fa-edit"></i></a>
+                    <a data-toggle="modal" href="javascript:void(0)" onclick="openLoginModal();"><i class="fa fa-fw fa-edit"></i></a>
+
                 </li>
                 <li class="dropdown">
                     <a href="" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> {{ full_name }} <b class="caret"></b></a>

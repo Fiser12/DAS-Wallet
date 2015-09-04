@@ -12,6 +12,7 @@ class Cuenta(models.Model):
 
 class Categoria(models.Model):
     id = models.AutoField(primary_key=True)
+    createdBy = models.ForeignKey('auth.User', related_name='createdBy')
     titulo = models.CharField(max_length=200)
 class Apunte(models.Model):
     id = models.AutoField(primary_key=True)

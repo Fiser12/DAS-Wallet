@@ -1,0 +1,69 @@
+{% extends "baseInterna.html" %}
+{% block content %}
+        <div id="page-wrapper">
+
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                            Editar Cuentas
+                        </h1>
+                        <div class="row">
+                            <div class="col-lg-8 text-center"><!-- Aquí va la lista de todas las categorías -->
+                                <div class="panel panel-default">
+                                    <div class="panel-body">
+                                        <h3>Lista de Cuentas</h3>
+                                        <div class="table-responsive">
+                                            <table class="table table-hover">
+                                                <thead>
+                                                <tr>
+                                                    <th>Nombre de la cuenta</th>
+                                                    <th>Saldo inicial</th>
+                                                    <th>Editar</th>
+                                                    <th>Borrar</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                {% for cuenta in object_list %}
+                                                    <tr>
+                                                        <td>{{ cuenta.nombre }}</td>
+                                                        <td>{{ cuenta.saldoInicial }}</td>
+                                                        <td><button type="button" class="btn btn-sm btn-default">Editar</button></td>
+                                                        <td><form style="display: inline" action="/cuenta/delete/{{ cuenta.id }}" method="get"><button class="btn btn-sm btn-danger">Borrar</button></form></td>
+
+                                                    </tr>
+                                                {% endfor %}
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    <div class="col-lg-4 text-center"><!-- Aquí va el menu que permite añadir una categoría -->
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <h3>Crear Cuentas</h3>
+                                <br/>
+                                <div class="form">
+                                    <form action="/createCuenta/" method="post">{% csrf_token %}
+                                        <input id="nombre" class="form-control" type="text" placeholder="Nombre" name="nombre"><br/>
+                                        <input id="saldoInicial" class="form-control" type="text" placeholder="Saldo" name="saldoInicial">
+                                        <br/>
+                                        <input class="btn btn-default btn-login" type="submit" value="Guardar">
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    </div>
+                </div>
+                <!-- /.row -->
+
+            </div>
+            <!-- /.container-fluid -->
+        </div>
+
+{% endblock %}
