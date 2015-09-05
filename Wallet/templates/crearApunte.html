@@ -1,21 +1,61 @@
 {% extends "baseInterna.html" %}
 {% block content %}
-        <div id="page-wrapper">
+    <div id="page-wrapper">
 
-            <div class="container-fluid">
+        <div class="container-fluid">
 
-                <!-- Page Heading -->
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h1 class="page-header">
-                            Crear Apunte
-                        </h1>
-                    </div>
+            <!-- Page Heading -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">
+                        Crear Apunte
+                    </h1>
                 </div>
-                <!-- /.row -->
+                        <input class="form-control" placeholder="Descripción">
 
+                    <div data-toggle="buttons">
+                        <label class="btn btn-primary active">
+                            <input type="radio" name="options" id="option1" autocomplete="off" checked> Ingreso
+                        </label>
+                        <label class="btn btn-primary">
+                            <input type="radio" name="options" id="option2" autocomplete="off"> Gasto
+                        </label>
+                        <label class="btn btn-primary">
+                            <input type="radio" name="options" id="option3" autocomplete="off"> Transferencia
+                        </label>
+                    </div>
+                        <div class="input-group input-append date" id="dateRangePicker">
+                            <input type="text" class="form-control" name="date"/>
+                            <span class="input-group-addon add-on"><span
+                                    class="glyphicon glyphicon-calendar"></span></span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Dinero">
+
+                    <div>
+                        <label>Categorías</label>
+                        <select class="form-control">
+                            <option>1</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label>Cuenta</label>
+                        <select class="form-control">
+                            <option>1</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label>Cuenta Destino</label>
+                        <select class="form-control">
+                            <option>1</option>
+                        </select>
+                    </div>
+
+                </div>
             </div>
-            <!-- /.container-fluid -->
+            <!-- /.row -->
+
         </div>
+        <!-- /.container-fluid -->
+    </div>
 
 {% endblock %}

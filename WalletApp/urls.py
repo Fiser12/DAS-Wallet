@@ -16,6 +16,7 @@ Including another URLconf
 from django.conf.urls import url, include, patterns
 from django.contrib import admin
 from rest_framework.routers import DefaultRouter
+
 from Wallet.views import CuentaViewSet, ApunteViewSet, CategoriaViewSet
 
 router = DefaultRouter()
@@ -24,29 +25,29 @@ router.register(r'apunte', ApunteViewSet)
 router.register(r'categoria', CategoriaViewSet)
 
 urlpatterns = patterns('',
-url(r'^$', 'Wallet.views.login'),
-url(r'^api/', include(router.urls)),
-url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-url(r'^admin/', include(admin.site.urls)),
+                       url(r'^$', 'Wallet.views.login'),
+                       url(r'^api/', include(router.urls)),
+                       url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+                       url(r'^admin/', include(admin.site.urls)),
 
-url(r'^accounts/login/$', 'Wallet.views.login'),
-url(r'^accounts/auth/$', 'Wallet.views.auth_view'),
-url(r'^accounts/logout/$', 'Wallet.views.logout'),
-url(r'^accounts/loggedin/$', 'Wallet.views.loggedin'),
-url(r'^accounts/invalid/$', 'Wallet.views.invalid_login'),
-url(r'^accounts/register/$', 'Wallet.views.register_user'),
-url(r'^accounts/register_success/$', 'Wallet.views.register_success'),
-url(r'^createApunte/$', 'Wallet.views.ApunteCreate'),
-url(r'^createCategoria/$', 'Wallet.views.CategoriaCreate'),
-url(r'^createCuenta/$', 'Wallet.views.CuentaCreate'),
-url(r'^reportes/tendencias', 'Wallet.views.GetTendencias'),
-url(r'^reportes/patrimonio', 'Wallet.views.GetPatrimonio'),
-url(r'^reportes/categorias', 'Wallet.views.GetCategorias'),
-url(r'^reportes/estadisticas', 'Wallet.views.GetEstadisticas'),
-url(r'^cuenta/(?P<id>\d+)/$', 'Wallet.views.CuentaPanel'),
-url(r'^cuenta/editar/', 'Wallet.views.EditarCuentas'),
-url(r'^categoria/editar/', 'Wallet.views.EditarCategorias'),
-url(r'^cuenta/delete/(?P<id>\d+)/$', 'Wallet.views.CuentaDelete'),
-url(r'^categoria/delete/(?P<id>\d+)/$', 'Wallet.views.CategoriaDelete')
-)
-
+                       url(r'^accounts/login/$', 'Wallet.views.login'),
+                       url(r'^accounts/auth/$', 'Wallet.views.auth_view'),
+                       url(r'^accounts/logout/$', 'Wallet.views.logout'),
+                       url(r'^accounts/loggedin/$', 'Wallet.views.loggedin'),
+                       url(r'^accounts/invalid/$', 'Wallet.views.invalid_login'),
+                       url(r'^accounts/register/$', 'Wallet.views.register_user'),
+                       url(r'^accounts/register_success/$', 'Wallet.views.register_success'),
+                       url(r'^createApunte/$', 'Wallet.views.ApunteCreate'),
+                       url(r'^createCategoria/$', 'Wallet.views.CategoriaCreate'),
+                       url(r'^createCuenta/$', 'Wallet.views.CuentaCreate'),
+                       url(r'^reportes/tendencias', 'Wallet.views.GetTendencias'),
+                       url(r'^reportes/patrimonio', 'Wallet.views.GetPatrimonio'),
+                       url(r'^reportes/categorias', 'Wallet.views.GetCategorias'),
+                       url(r'^reportes/estadisticas', 'Wallet.views.GetEstadisticas'),
+                       url(r'^cuenta/(?P<id>\d+)/$', 'Wallet.views.CuentaPanel'),
+                       url(r'^cuenta/editar/', 'Wallet.views.EditarCuentas'),
+                       url(r'^categoria/editar/', 'Wallet.views.EditarCategorias'),
+                       url(r'^cuenta/delete/(?P<id>\d+)/$', 'Wallet.views.CuentaDelete'),
+                       url(r'^categoria/delete/(?P<id>\d+)/$', 'Wallet.views.CategoriaDelete'),
+                       url(r'^apunte/create/$', 'Wallet.views.ViewCreateApunte')
+                       )

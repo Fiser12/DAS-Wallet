@@ -16,17 +16,22 @@
     <link href="{% static "Wallet/css/login-register.css" %}" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="{% static "Wallet/css/sb-admin.css"%}" rel="stylesheet">
+    <link href="{% static "Wallet/css/sb-admin.css" %}" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="{% static "Wallet/font-awesome/css/font-awesome.min.css"%}" rel="stylesheet" type="text/css">
+    <link href="{% static "Wallet/font-awesome/css/font-awesome.min.css" %}" rel="stylesheet" type="text/css">
     <!-- jQuery -->
-    <script src="{% static "Wallet/js/jquery.js"%}"></script>
-    <script src="{% static "Wallet/js/etiqueta-cuenta.js"%}"></script>
-    <script src="{% static "Wallet/js/jquery-1.10.2.js"%}"></script>
-    <script src="{% static "Wallet/js/jquery-ui.custom.min.js"%}"></script>
+    <script src="{% static "Wallet/js/jquery.js" %}"></script>
+    <script src="{% static "Wallet/js/etiqueta-cuenta.js" %}"></script>
+    <script src="{% static "Wallet/js/jquery-1.10.2.js" %}"></script>
+    <script src="{% static "Wallet/js/jquery-ui.custom.min.js" %}"></script>
     <!-- Bootstrap Core JavaScript -->
-    <script src="{% static "Wallet/js/bootstrap.min.js"%}"></script>
+    <script src="{% static "Wallet/js/bootstrap.min.js" %}"></script>
+    <script src="{% static "Wallet/js/bootstrap-datetimepicker.fiser.js" %}"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.min.css"/>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker3.min.css"/>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.min.js"></script>
+
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -37,131 +42,199 @@
 
 </head>
 <body>
-    <div id="wrapper">
+<div id="wrapper">
 
-        <!-- Navigation -->
-        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="/accounts/loggedin/">Wallet</a>
-            </div>
-            <!-- Top Menu Items -->
-            <ul class="nav navbar-right top-nav">
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-fw fa-gear"></i> <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <a href="/cuenta/editar/"> Editar Cuenta</a>
-                        </li>
-                        <li>
-                            <a href="/categoria/editar/">  Editar Categoría</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li class="dropdown">
-                    <a data-toggle="modal" href="javascript:void(0)" onclick="openLoginModal();"><i class="fa fa-fw fa-edit"></i></a>
-
-                </li>
-                <li class="dropdown">
-                    <a href="" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> {{ full_name }} <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <a href="/accounts/logout/"><i class="fa fa-fw fa-power-off"></i> Desconectar</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
-            <div class="collapse navbar-collapse navbar-ex1-collapse">
-                <ul class="nav navbar-nav side-nav">
-                    <li class="active">
-                        <a href="/accounts/loggedin/"><i class="fa fa-fw fa-dashboard"></i> Panel de Control</a>
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/accounts/loggedin/">Wallet</a>
+        </div>
+        <!-- Top Menu Items -->
+        <ul class="nav navbar-right top-nav">
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-fw fa-gear"></i> <b
+                        class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="/cuenta/editar/"> Editar Cuenta</a>
                     </li>
                     <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#cuenta"><i class="fa fa-fw fa-arrows-v"></i> Cuentas <i class="fa fa-fw fa-caret-down"></i></a>
-
-                        <ul id="cuenta" class="collapse in">
-                            {% for cuenta in object_list %}
-                            <li>
-                                <a href="/cuenta/{{ cuenta.id }}"><i class="fa fa-fw fa-desktop"></i> {{ cuenta.nombre }}</a>
-                            </li>
-                            {% endfor %}
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#reportes"><i class="fa fa-fw fa-bar-chart-o"></i> Reportes <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="reportes" class="collapse in">
-                            <li>
-                                <a href="/reportes/patrimonio"><i class="fa fa-fw fa-bar-chart-o"></i> Patrimonio Neto</a>
-                            </li>
-                            <li>
-                                <a href="/reportes/estadisticas"><i class="fa fa-fw fa-table"></i> Estadísticas</a>
-                            </li>
-                            <li>
-                                <a href="/reportes/categorias"><i class="fa fa-fw fa-edit"></i>Categorías</a>
-                            </li>
-                            <li>
-                                <a href="/reportes/tendencias"><i class="fa fa-fw fa-bar-chart-o"></i> Tendencias</a>
-                            </li>
-                        </ul>
-
+                        <a href="/categoria/editar/"> Editar Categoría</a>
                     </li>
                 </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </nav>
+            </li>
 
-        {% block content %}
+            <li class="dropdown">
+                <a data-toggle="modal" data-target="#myModal"><i class="fa fa-fw fa-edit"></i></a>
 
+            </li>
 
-        {% endblock content %}
+            <li class="dropdown">
+                <a href="" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> {{ full_name }} <b
+                        class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="/accounts/logout/"><i class="fa fa-fw fa-power-off"></i> Desconectar</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
 
+        <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav side-nav">
+                <li class="active">
+                    <a href="/accounts/loggedin/"><i class="fa fa-fw fa-dashboard"></i> Panel de Control</a>
+                </li>
+                <li>
+                    <a href="javascript:;" data-toggle="collapse" data-target="#cuenta"><i
+                            class="fa fa-fw fa-arrows-v"></i> Cuentas <i class="fa fa-fw fa-caret-down"></i></a>
+
+                    <ul id="cuenta" class="collapse in">
+                        {% for cuenta in object_list %}
+                            <li>
+                                <a href="/cuenta/{{ cuenta.id }}"><i
+                                        class="fa fa-fw fa-desktop"></i> {{ cuenta.nombre }}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:;" data-toggle="collapse" data-target="#reportes"><i
+                            class="fa fa-fw fa-bar-chart-o"></i> Reportes <i class="fa fa-fw fa-caret-down"></i></a>
+                    <ul id="reportes" class="collapse in">
+                        <li>
+                            <a href="/reportes/patrimonio"><i class="fa fa-fw fa-bar-chart-o"></i> Patrimonio Neto</a>
+                        </li>
+                        <li>
+                            <a href="/reportes/estadisticas"><i class="fa fa-fw fa-table"></i> Estadísticas</a>
+                        </li>
+                        <li>
+                            <a href="/reportes/categorias"><i class="fa fa-fw fa-edit"></i>Categorías</a>
+                        </li>
+                        <li>
+                            <a href="/reportes/tendencias"><i class="fa fa-fw fa-bar-chart-o"></i> Tendencias</a>
+                        </li>
+                    </ul>
+
+                </li>
+            </ul>
         </div>
-        <!-- /#page-wrapper -->
+        <!-- /.navbar-collapse -->
+    </nav>
 
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <form action="/createApunte/" method="post">
+                    <fieldset>
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Crear Apunte</h4>
+                </div>
+                <div class="modal-body ">
+                    <div style="height:50px;">
+                    <input class="form-control"  placeholder="Descripción" name="descripcion">
+                    </div>
+                    <div class="col-lg-12 text-center " style="height:50px;" data-toggle="buttons">
+                        <label class="btn btn-primary active">
+                            <input type="radio" name="ingresoGastoTransferencia" id="ingreso" value="Ingreso" checked = "checked"> Ingreso
+                        </label>
+                        <label class="btn btn-primary">
+                            <input type="radio" name="ingresoGastoTransferencia" id="gasto" value="Gasto"> Gasto
+                        </label>
+                        <label class="btn btn-primary">
+                            <input type="radio" name="ingresoGastoTransferencia" id="transferencia" value="Transferencia"> Transferencia
+                        </label>
+                    </div>
+                    <div class="input-group input-append date"  id="dateRangePicker">
+                        <input type="date" class="form-control" name="fecha"/>
+                        <span class="input-group-addon add-on"><span class="glyphicon glyphicon-calendar"></span></span>
+                    </div>
+                    <input id='allownumericwithdecimal'type="number" class="form-control" placeholder="Dinero" name="dinero">
+<script> $("#allownumericwithdecimal").on("keypress keyup blur",function (event) {
+            //this.value = this.value.replace(/[^0-9\.]/g,'');
+     $(this).val($(this).val().replace(/[^0-9\.]/g,''));
+            if ((event.which != 46 || $(this).val().indexOf(',') != -1) && (event.which < 48 || event.which > 57)) {
+                event.preventDefault();
+            }
+        });
+
+</script>
+                    <div>
+                        <label>Categorías</label>
+                        <select class="form-control" name="categoria">
+                            {% for categoria in categoria_list %}
+                                <option value="{{ categoria.id }}">{{ categoria.titulo }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div>
+                        <label>Cuenta</label>
+                        <select class="form-control" name="cuentaOrigen">
+                            {% for cuenta in object_list %}
+                                <option value="{{ cuenta.id }}">{{ cuenta.nombre }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div>
+                        <label>Cuenta Destino</label>
+                        <select class="form-control" id="disabled" name="cuentaDestino">
+                            {% for cuenta in object_list %}
+                                <option value="{{ cuenta.id }}">{{ cuenta.nombre }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                        </fieldset>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                </div>
+
+                    </form>
+            </div>
+        </div>
     </div>
-            <div class="modal fade login" id="loginModal">
-              <div class="modal-dialog login animated">
-                  <div class="modal-content">
-                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title">Login</h4>
-                    </div>
-                    <div class="modal-body">
-                        <div class="box">
-                             <div class="content">
-                                <div class="form sendBox">
-                                    <form action="/createCuenta/" method="post">{% csrf_token %}
-                                        <input id="nombre" class="form-control" type="text" placeholder="Nombre" name="nombre">
-                                        <input id="saldoInicial" class="form-control" type="text" placeholder="Saldo" name="saldoInicial">
-                                        <input class="btn btn-default btn-login" type="submit" value="Guardar">
-                                    </form>
-                                </div>
-                             </div>
-                        </div>
-                        <div class="box">
-                            <div class="content registerBox" style="display:none;">
-                                <div class="form">
-                                    <form method="post" action="/createCategoria/">{% csrf_token %}
-                                        <input id="titulo" class="form-control" type="text" placeholder="Nombre" name="titulo">
-                                        <input class="btn btn-default btn-register" type="submit" value="Guardar">
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                  </div>
-              </div>
-          </div>
+    <style type="text/css">
+        /**
+$('.number').keypress(function(event) {
+    if(event.which < 46
+    || event.which > 59) {
+        event.preventDefault();
+    } // prevent if not number/dot
 
-    <!-- /#wrapper -->
+    if(event.which == 46
+    && $(this).val().indexOf('.') != -1) {
+        event.preventDefault();
+    } // prevent if already dot
+});​
+         * Override feedback icon position
+         * See http://formvalidation.io/examples/adjusting-feedback-icon-position/
+         */
+    </style>
+
+
+
+    {% block content %}
+
+
+    {% endblock content %}
+
+</div>
+<!-- /#page-wrapper -->
+
+</div>
+<!-- /#wrapper -->
 </body>
 
 </html>
