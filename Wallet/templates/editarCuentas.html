@@ -64,12 +64,21 @@
 
                                             <div class="form-group input-group">
                                                 <span class="input-group-addon"><i class="fa fa-eur"></i></span>
-                                                <input id="saldoInicial" class="form-control" type="text"
+                                                <input id="saldoInicial" class="form-control allownumericwithdecimal" type="text"
                                                        placeholder="Saldo" name="saldoInicial">
                                             </div>
                                             <br/>
                                             <input class="btn btn-default btn-login" type="submit" value="Guardar">
                                         </form>
+                                                                   <script> $(".allownumericwithdecimal").on("keypress keyup blur", function (event) {
+                                                                       //this.value = this.value.replace(/[^0-9\.]/g,'');
+                                                                       $(this).val($(this).val().replace(/[^0-9\.]/g, ''));
+                                                                       if ((event.which != 46 || $(this).val().indexOf('.') != -1) && (event.which < 48 || event.which > 57)) {
+                                                                           event.preventDefault();
+                                                                       }
+                                                                   });
+
+                                                                   </script>
                                     </div>
                                 </div>
                             </div>

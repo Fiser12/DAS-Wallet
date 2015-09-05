@@ -100,25 +100,26 @@ def ApunteCreate(request):
     cuentaOrigen = Cuenta.objects.get(id=int(cuentaOrigenNumero))
     cuentaDestinoNumero = request.POST.get('cuentaDestino', '')
     cuentaDestino = Cuenta.objects.get(id=int(cuentaDestinoNumero))
-
     ingresoGastoTransferencia = request.POST.get('ingresoGastoTransferencia', '')
     numero = 0
     if ingresoGastoTransferencia=="Ingreso":
         numero = 1
+        cuentaDestino = cuentaOrigen
+
     elif ingresoGastoTransferencia=="Gasto":
         numero = 2
+        cuentaDestino = cuentaOrigen
+
     elif ingresoGastoTransferencia=="Transferencia":
         numero = 3
-        cuentaDestino = cuentaOrigen
 
     fecha = request.POST.get('fecha', '')
     print(fecha)
     categoriaString = request.POST.get('categoria', '')
     categoria = Categoria.objects.get(id=int(categoriaString))
-    #fechaProcesada= datetime.strptime(fecha, '%d/%m/%Y')
-    #print(fechaProcesada)
-    #apunte = Apunte(descripcion=descripcion, dinero=dinero, cuentaDestino=cuentaDestino, cuentaOrigen=cuentaOrigen, ingresoGastoTransferencia=numero, fecha=fechaProcesada, categoria=categoria)
-    #apunte.save()
+    fechaProcesada= datetime.strptime(fecha, '%m/%d/%Y')
+    apunte = Apunte(descripcion=descripcion, dinero=dinero, cuentaDestino=cuentaDestino, cuentaOrigen=cuentaOrigen, ingresoGastoTransferencia=numero, fecha=fechaProcesada, categoria=categoria)
+    apunte.save()
     return render_to_response('loggedin.html', c)
 
 

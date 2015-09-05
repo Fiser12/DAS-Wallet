@@ -136,72 +136,82 @@
             <div class="modal-content">
                 <form action="/createApunte/" method="post">
                     <fieldset>
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                            aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Crear Apunte</h4>
-                </div>
-                <div class="modal-body ">
-                    <div style="height:50px;">
-                    <input class="form-control"  placeholder="Descripción" name="descripcion">
-                    </div>
-                    <div class="col-lg-12 text-center " style="height:50px;" data-toggle="buttons">
-                        <label class="btn btn-primary active">
-                            <input type="radio" name="ingresoGastoTransferencia" id="ingreso" value="Ingreso" checked = "checked"> Ingreso
-                        </label>
-                        <label class="btn btn-primary">
-                            <input type="radio" name="ingresoGastoTransferencia" id="gasto" value="Gasto"> Gasto
-                        </label>
-                        <label class="btn btn-primary">
-                            <input type="radio" name="ingresoGastoTransferencia" id="transferencia" value="Transferencia"> Transferencia
-                        </label>
-                    </div>
-                    <div class="input-group input-append date"  id="dateRangePicker">
-                        <input type="date" class="form-control" name="fecha"/>
-                        <span class="input-group-addon add-on"><span class="glyphicon glyphicon-calendar"></span></span>
-                    </div>
-                    <input id='allownumericwithdecimal'type="number" class="form-control" placeholder="Dinero" name="dinero">
-<script> $("#allownumericwithdecimal").on("keypress keyup blur",function (event) {
-            //this.value = this.value.replace(/[^0-9\.]/g,'');
-     $(this).val($(this).val().replace(/[^0-9\.]/g,''));
-            if ((event.which != 46 || $(this).val().indexOf(',') != -1) && (event.which < 48 || event.which > 57)) {
-                event.preventDefault();
-            }
-        });
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                    aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">Crear Apunte</h4>
+                        </div>
+                        <div class="modal-body ">
+                            <div style="height:50px;">
+                                <input class="form-control" placeholder="Descripción" name="descripcion">
+                            </div>
+                            <div class="col-lg-12 text-center " style="height:50px;" data-toggle="buttons">
+                                <label class="btn btn-primary active btn1">
+                                    <input type="radio" name="ingresoGastoTransferencia" id="ingreso" value="Ingreso"
+                                           checked="checked"> Ingreso
+                                </label>
+                                <label class="btn btn-primary btn1">
+                                    <input type="radio" name="ingresoGastoTransferencia" id="gasto" value="Gasto"> Gasto
+                                </label>
+                                <label class="btn btn-primary btn2">
+                                    <input type="radio" name="ingresoGastoTransferencia" id="transferencia"
+                                           value="Transferencia"> Transferencia
+                                </label>
+                            </div>
+                            <div class="input-group input-append date" id="dateRangePicker">
+                                <input type="date" class="form-control" name="fecha"/>
+                                <span class="input-group-addon add-on"><span
+                                        class="glyphicon glyphicon-calendar"></span></span>
+                            </div>
+                            <input type="text" class="form-control allownumericwithdecimal" placeholder="Dinero"
+                                   name="dinero">
+                            <div>
+                                <script> $(".allownumericwithdecimal").on("keypress keyup blur", function (event) {
+                                //this.value = this.value.replace(/[^0-9\.]/g,'');
+                                $(this).val($(this).val().replace(/[^0-9\.]/g, ''));
+                                if ((event.which != 46 || $(this).val().indexOf('.') != -1) && (event.which < 48 || event.which > 57)) {
+                                    event.preventDefault();
+                                }
+                            });
+ $(".btn1").click(function(){
+ $("#disabled").slideUp();
+ });
+ $(".btn2").click(function(){
+ $("#disabled").slideDown();
+ });
 
-</script>
-                    <div>
-                        <label>Categorías</label>
-                        <select class="form-control" name="categoria">
-                            {% for categoria in categoria_list %}
-                                <option value="{{ categoria.id }}">{{ categoria.titulo }}</option>
-                            {% endfor %}
-                        </select>
+                            </script>
+                                <label>Categorías</label>
+                                <select class="form-control" name="categoria">
+                                    {% for categoria in categoria_list %}
+                                        <option value="{{ categoria.id }}">{{ categoria.titulo }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div>
+                                <label>Cuenta</label>
+                                <select class="form-control" name="cuentaOrigen">
+                                    {% for cuenta in object_list %}
+                                        <option value="{{ cuenta.id }}">{{ cuenta.nombre }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div id="disabled" style="display: none;">
+                                <label>Cuenta Destino</label>
+                                <select class="form-control" name="cuentaDestino">
+                                    {% for cuenta in object_list %}
+                                        <option value="{{ cuenta.id }}">{{ cuenta.nombre }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="btn btn-primary">Guardar</button>
                     </div>
-                    <div>
-                        <label>Cuenta</label>
-                        <select class="form-control" name="cuentaOrigen">
-                            {% for cuenta in object_list %}
-                                <option value="{{ cuenta.id }}">{{ cuenta.nombre }}</option>
-                            {% endfor %}
-                        </select>
-                    </div>
-                    <div>
-                        <label>Cuenta Destino</label>
-                        <select class="form-control" id="disabled" name="cuentaDestino">
-                            {% for cuenta in object_list %}
-                                <option value="{{ cuenta.id }}">{{ cuenta.nombre }}</option>
-                            {% endfor %}
-                        </select>
-                    </div>
-                </div>
-                        </fieldset>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                    <button type="submit" class="btn btn-primary">Guardar</button>
-                </div>
 
-                    </form>
+                </form>
             </div>
         </div>
     </div>
