@@ -55,11 +55,25 @@ def auth_view(request):
 @login_required
 def loggedin(request):
     model = Cuenta.objects.filter(owner=request.user.id)
+    apuntes = Apunte.objects.filter(createdBy2=request.user.id)
+    apuntes = apuntes.order_by('-fecha')
+    dinero = 0
+    for cuenta in model:
+        print(cuenta.nombre)
+        dinero = cuenta.saldoInicial + dinero
+
+    for apunte in apuntes:
+        if apunte.ingresoGastoTransferencia==1:
+            dinero =+ apunte.dinero
+        elif apunte.ingresoGastoTransferencia==2:
+            dinero =- apunte.dinero
+
     return render_to_response('loggedin.html',
                               {'full_name': request.user.username,
                                'object_list': model,
-                               'categoria_list': Categoria.objects.filter(createdBy=request.user.id)})
-
+                               'categoria_list': Categoria.objects.filter(createdBy=request.user.id),
+                               'apuntes_list': apuntes,
+                               'dinero': dinero})
 
 def invalid_login(request):
     return render_to_response('invalid_login.html')
@@ -120,7 +134,7 @@ def ApunteCreate(request):
         categoriaString = request.POST.get('categoria', '')
         categoria = Categoria.objects.get(id=int(categoriaString))
         fechaProcesada= datetime.strptime(fecha, '%m/%d/%Y')
-        apunte = Apunte(descripcion=descripcion, dinero=dinero, cuentaDestino=cuentaDestino, cuentaOrigen=cuentaOrigen, ingresoGastoTransferencia=numero, fecha=fechaProcesada, categoria=categoria)
+        apunte = Apunte(descripcion=descripcion, dinero=dinero, cuentaDestino=cuentaDestino, cuentaOrigen=cuentaOrigen, ingresoGastoTransferencia=numero, fecha=fechaProcesada, categoria=categoria, createdBy2=request.user)
         apunte.save()
     return HttpResponseRedirect(request.META.get('HTTP_REFERER','/'))
 
@@ -171,9 +185,9 @@ class CategoriaUpdate(UpdateView):
 #####DELETE FUNTIONS#####
 #########################
 @login_required
-class ApunteDelete(DeleteView):
-    model = Apunte
-    success_url = reverse_lazy('apunte-list')
+def ApunteDelete(DeleteView, id):
+    Apunte.objects.get(id=id).delete()
+    return HttpResponseRedirect('/accounts/loggedin/')
 
 
 @login_required
@@ -194,12 +208,21 @@ def CategoriaDelete(request, id):
 def CuentaPanel(request, id):
     cuenta = Cuenta.objects.get(id=id)
     listaApuntes = Apunte.objects.filter(cuentaOrigen=cuenta)
+    listaApuntes = listaApuntes.order_by('-fecha')
+    dinero = cuenta.saldoInicial
+    for apunte in listaApuntes:
+        if apunte.ingresoGastoTransferencia==1:
+            dinero =+ apunte.dinero
+        elif apunte.ingresoGastoTransferencia==2:
+            dinero =- apunte.dinero
+
     return render_to_response('cuentas.html',
                               {'full_name': request.user.username,
                                'object_list': Cuenta.objects.filter(owner=request.user.id),
                                'cuenta': cuenta,
                                'categoria_list': Categoria.objects.filter(createdBy=request.user.id),
-                               'today': time.strftime("%Y-%m-%d")})
+                               'apunte_list': listaApuntes,
+                               'dinero': dinero})
 
 
 def GetTendencias(request):

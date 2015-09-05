@@ -29,3 +29,5 @@ class Apunte(models.Model):
     ingresoGastoTransferencia = models.IntegerField()
     fecha = models.DateField()
     categoria = models.ForeignKey(Categoria, related_name="categoria")
+    createdBy2 = models.ForeignKey('auth.User', related_name='createdBy2')
+

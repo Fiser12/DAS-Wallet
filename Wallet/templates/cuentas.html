@@ -12,6 +12,67 @@
                     </h1>
                 </div>
             </div>
+                        <div class="row">
+                <div class="col-sm-12">
+                    <div class="panel panel-green">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Dinero Actual</h3>
+                        </div>
+                        <div class="panel-body text-center">
+                            <h1>
+                                {{ dinero }} €
+                                </br>
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="col-lg-12">
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                            <tr>
+                                <th>Descripción</th>
+                                <th>Dinero</th>
+                                <th>Cuenta Destino</th>
+                                <th>Fecha</th>
+                                <th>Categoría</th>
+                                <th>Borrar</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for apunte in apuntes_list %}
+                                {% if apunte.ingresoGastoTransferencia == 3 %}
+                                    <tr class="warning">
+                                        {% elif apunte.ingresoGastoTransferencia == 1 %}
+                                    <tr class="success">
+                                        {% elif apunte.ingresoGastoTransferencia == 2 %}
+                                    <tr class="danger">
+                                {% endif %}
+                            <td>{{ apunte.descripcion }}</td>
+                            <td>{{ apunte.dinero }}</td>
+                            {% if apunte.ingresoGastoTransferencia == 3 %}
+                                <td>{{ apunte.cuentaDestino.nombre }}</td>
+                            {% else %}
+                                <td></td>
+                            {% endif %}
+                            <td>{{ apunte.fecha }}</td>
+                            <td>{{ apunte.categoria.titulo }}</td>
+                            <td>
+                                <form style="display: inline" action="/apunte/delete/{{ apunte.id }}" method="get">
+                                    <button class="btn btn-sm btn-danger">Borrar</button>
+                                </form>
+                            </td>
+                            </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
             <!-- /.row -->
 
         </div>
