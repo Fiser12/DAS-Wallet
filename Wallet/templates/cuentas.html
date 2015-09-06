@@ -14,7 +14,11 @@
             </div>
                         <div class="row">
                 <div class="col-sm-12">
-                    <div class="panel panel-green">
+                    {% if dinero < 0 %}
+                        <div class="panel panel-danger">
+                    {% else %}
+                        <div class="panel panel-success">
+                    {% endif %}
                         <div class="panel-heading">
                             <h3 class="panel-title">Dinero Actual</h3>
                         </div>
@@ -43,7 +47,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            {% for apunte in apuntes_list %}
+                            {% for apunte in apunte_list %}
                                 {% if apunte.ingresoGastoTransferencia == 3 %}
                                     <tr class="warning">
                                         {% elif apunte.ingresoGastoTransferencia == 1 %}

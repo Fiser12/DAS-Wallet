@@ -21,3 +21,14 @@ class ApunteSerializer(serializers.ModelSerializer):
         model = Apunte
         fields = ('id', 'descripcion', 'dinero', 'cuentaOrigen', 'cuentaDestino', 'ingresoGastoTransferencia', 'fecha',
                   'categoria')
+
+class CategoriaSerializerWithMoreData(object):
+    categoria = Categoria
+    apuntes = []
+    dinero = 0
+    def __init__(self, categoria, apuntes, dinero):
+        self.dinero = dinero
+        self.apuntes = apuntes
+        self.categoria = categoria
+    def __cmp__(self, other):
+        return cmp(self.dinero, other.dinero)

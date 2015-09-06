@@ -17,7 +17,15 @@
 
     <!-- Custom CSS -->
     <link href="{% static "Wallet/css/sb-admin.css" %}" rel="stylesheet">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/prettify/r224/prettify.min.css">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.2/raphael-min.js"></script>
+  <script src="{% static "Wallet/js/morris.js"%}"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/prettify/r224/prettify.min.js"></script>
+  <script src="{% static "Wallet/js/example.js"%}"></script>
 
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/prettify/r224/prettify.min.css">
+  <link rel="stylesheet" href="{% static "Wallet/css/morris.css"%}">
     <!-- Custom Fonts -->
     <link href="{% static "Wallet/font-awesome/css/font-awesome.min.css" %}" rel="stylesheet" type="text/css">
     <!-- jQuery -->
@@ -25,6 +33,7 @@
     <script src="{% static "Wallet/js/etiqueta-cuenta.js" %}"></script>
     <script src="{% static "Wallet/js/jquery-1.10.2.js" %}"></script>
     <script src="{% static "Wallet/js/jquery-ui.custom.min.js" %}"></script>
+
     <!-- Bootstrap Core JavaScript -->
     <script src="{% static "Wallet/js/bootstrap.min.js" %}"></script>
     <script src="{% static "Wallet/js/bootstrap-datetimepicker.fiser.js" %}"></script>
@@ -164,7 +173,7 @@
                         <div class="form-group input-group">
                             <span class="input-group-addon"><i class="fa fa-eur"></i></span>
                             <input type="text" class="form-control allownumericwithdecimal" placeholder="Dinero"
-                                   name="dinero">
+                                   name="dinero" value="0">
                                             </div>
 
                             <div>

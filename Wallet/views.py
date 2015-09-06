@@ -10,7 +10,7 @@ from django.core.urlresolvers import reverse_lazy
 from django.http import HttpResponseRedirect
 from datetime import datetime
 from .models import Cuenta, Apunte, Categoria
-from .serializers import CuentaSerializer, ApunteSerializer, CategoriaSerializer
+from .serializers import CuentaSerializer, ApunteSerializer, CategoriaSerializer, CategoriaSerializerWithMoreData
 import time
 
 ########################
@@ -64,9 +64,9 @@ def loggedin(request):
 
     for apunte in apuntes:
         if apunte.ingresoGastoTransferencia==1:
-            dinero =+ apunte.dinero
+            dinero = dinero + apunte.dinero
         elif apunte.ingresoGastoTransferencia==2:
-            dinero =- apunte.dinero
+            dinero = dinero - apunte.dinero
 
     return render_to_response('loggedin.html',
                               {'full_name': request.user.username,
@@ -212,9 +212,9 @@ def CuentaPanel(request, id):
     dinero = cuenta.saldoInicial
     for apunte in listaApuntes:
         if apunte.ingresoGastoTransferencia==1:
-            dinero =+ apunte.dinero
+            dinero = dinero +  apunte.dinero
         elif apunte.ingresoGastoTransferencia==2:
-            dinero =- apunte.dinero
+            dinero = dinero - apunte.dinero
 
     return render_to_response('cuentas.html',
                               {'full_name': request.user.username,
@@ -242,11 +242,43 @@ def GetPatrimonio(request):
 
 
 def GetCategorias(request):
+    todasCategoriasDesordenadas = Categoria.objects.filter(createdBy=request.user)
+    categoriasIngresos = []
+    categoriasGastos = []
+
+    for categoria in todasCategoriasDesordenadas:
+        apuntes = Apunte.objects.filter(categoria=categoria)
+        apuntes.order_by('-fecha')
+
+        dineroIngresos = 0
+        dineroGastos = 0
+        listaApuntesIngresos = []
+        listaApuntesGastos = []
+        for apunte in apuntes:
+            if apunte.ingresoGastoTransferencia==1:
+                dineroIngresos = dineroIngresos + apunte.dinero
+                listaApuntesIngresos.append(apunte)
+            elif apunte.ingresoGastoTransferencia==2:
+                dineroGastos = dineroGastos + (apunte.dinero)
+                listaApuntesGastos.append(apunte)
+
+
+        categoriaIngresos = CategoriaSerializerWithMoreData(categoria=categoria, dinero=dineroIngresos, apuntes=listaApuntesIngresos)
+        categoriaGastos = CategoriaSerializerWithMoreData(categoria=categoria, dinero=dineroGastos, apuntes=listaApuntesGastos)
+
+        categoriasIngresos.append(categoriaIngresos)
+        categoriasGastos.append(categoriaGastos)
+
+    categoriasIngresos.sort(key=lambda x: x.dinero, reverse=True)
+    categoriasGastos.sort(key=lambda x: x.dinero, reverse=True)
+
     return render_to_response('categoria.html',
                               {'full_name': request.user.username,
                                'object_list': Cuenta.objects.filter(owner=request.user.id),
                                'categoria_list': Categoria.objects.filter(createdBy=request.user.id),
-                               'today': time.strftime("%Y-%m-%d")})
+                               'today': time.strftime("%Y-%m-%d"),
+                               'categoriasIngresos': categoriasIngresos,
+                               'categoriasGastos': categoriasGastos})
 
 
 def GetEstadisticas(request):
