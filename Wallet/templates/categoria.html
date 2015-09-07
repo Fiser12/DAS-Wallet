@@ -59,7 +59,7 @@
                             <tbody>
                             {% for categorias in categoriasIngresos %}
                             {% for apunte in categorias.apuntes %}
-                                <tr class="apunteidIngresos{{ categorias.categoria.id }} hidemeplease">
+                                <tr class="apunteidIngresos{{ categorias.categoria.id }} hidemeplease" hidden>
                                 <td>{{ apunte.descripcion }}</td>
                                 <td>{{ apunte.dinero }}</td>
                                     {% if apunte.ingresoGastoTransferencia == 3 %}
@@ -77,7 +77,6 @@
                                 </td>
                                 </tr>
                              {% endfor %}
-
                             {% endfor %}
                             {% for categorias in categoriasGastos %}
                             {% for apunte in categorias.apuntes %}
@@ -121,14 +120,6 @@
                 {% endif %}
             {% endfor %}
         ],
-        backgroundColor: '#ccc',
-        labelColor: '#060',
-        colors: [
-            '#0BA462',
-            '#39B580',
-            '#67C69D',
-            '#95D7BB'
-        ],
         formatter: function (x) {
             return x + "€"
         }
@@ -142,14 +133,6 @@
                     {value: {{ categoria.dinero }}, label: '{{ categoria.categoria.titulo }}', id: {{ categoria.categoria.id }}, ingGas: 'Gastos'},
                 {% endif %}
             {% endfor %}
-        ],
-        backgroundColor: '#ccc',
-        labelColor: '#060',
-        colors: [
-            '#0BA462',
-            '#39B580',
-            '#67C69D',
-            '#95D7BB'
         ],
         formatter: function (x) {
             return x + "€"

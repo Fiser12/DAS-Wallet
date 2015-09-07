@@ -1749,6 +1749,7 @@ Licensed under the BSD-2-Clause License.
       segment = this.segments[idx];
       segment.select();
       row = this.data[idx];
+
       return this.setLabels(row.label, this.options.formatter(row.value, row));
     };
 

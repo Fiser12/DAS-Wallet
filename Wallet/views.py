@@ -1,12 +1,10 @@
 from django.contrib.auth.decorators import login_required
 from django.views.generic.edit import UpdateView
-from django.views.generic.edit import DeleteView
 from django.shortcuts import render_to_response
 from rest_framework import viewsets
 from django.core.context_processors import csrf
 from django.contrib import auth
 from django.contrib.auth.forms import UserCreationForm
-from django.core.urlresolvers import reverse_lazy
 from django.http import HttpResponseRedirect
 from datetime import datetime
 from .models import Cuenta, Apunte, Categoria
@@ -185,10 +183,9 @@ class CategoriaUpdate(UpdateView):
 #####DELETE FUNTIONS#####
 #########################
 @login_required
-def ApunteDelete(DeleteView, id):
+def ApunteDelete(request, id):
     Apunte.objects.get(id=id).delete()
-    return HttpResponseRedirect('/accounts/loggedin/')
-
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER','/'))
 
 @login_required
 def CuentaDelete(request, id):
