@@ -26,6 +26,7 @@ class CategoriaSerializerWithMoreData(object):
     categoria = Categoria
     apuntes = []
     dinero = 0
+
     def __init__(self, categoria, apuntes, dinero):
         self.dinero = dinero
         self.apuntes = apuntes
@@ -36,9 +37,11 @@ class DatosTabla(object):
     fecha = ""
     dinero = 0.0
     i = 0
-    def __init__(self, fecha, dinero, i):
+    apunte = Apunte
+    def __init__(self, fecha, dinero, i, apunte):
         self.dinero = dinero
         self.fecha = fecha
         self.i = i
+        self.apunte = apunte
     def __cmp__(self, other):
         return cmp(self.dinero, other.dinero)

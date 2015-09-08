@@ -64,24 +64,33 @@ def loggedin(request):
     for apunte in apuntes:
         if apunte.ingresoGastoTransferencia==1:
             dinero = dinero + apunte.dinero
-            arrayDatos.append(DatosTabla(apunte.fecha.__str__(), dinero, apunte.ingresoGastoTransferencia))
+            arrayDatos.append(DatosTabla(apunte.fecha.__str__(), dinero, apunte.ingresoGastoTransferencia, apunte.dinero))
 
         elif apunte.ingresoGastoTransferencia==2:
             dinero = dinero - apunte.dinero
-            arrayDatos.append(DatosTabla(apunte.fecha.__str__(), dinero, apunte.ingresoGastoTransferencia))
+            arrayDatos.append(DatosTabla(apunte.fecha.__str__(), dinero, apunte.ingresoGastoTransferencia, apunte.dinero))
+    arrayFinal = []
+    anterior = None
+    for dato in arrayDatos:
+        if(anterior is None):
+            anterior = DatosTabla(dato.fecha.__str__(), dato.dinero, dato.i, dato.apunte)
+            arrayFinal.append(anterior)
+        else:
 
-
+            if anterior.fecha==dato.fecha:
+                anterior.dinero= anterior.dinero + dato.apunte
+            else:
+                anterior = DatosTabla(dato.fecha.__str__(), dato.dinero, dato.i, dato.apunte)
+                arrayFinal.append(anterior)
 
     apuntes = apuntes.order_by('-fecha')
-
-
     return render_to_response('loggedin.html',
                               {'full_name': request.user.username,
                                'object_list': model,
                                'categoria_list': Categoria.objects.filter(createdBy=request.user.id),
                                'apuntes_list': apuntes,
                                'dinero': dinero,
-                               'arrayDatos': arrayDatos})
+                               'arrayDatos': arrayFinal})
 
 def invalid_login(request):
     return render_to_response('invalid_login.html')
