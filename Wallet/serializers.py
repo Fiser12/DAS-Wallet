@@ -45,3 +45,15 @@ class DatosTabla(object):
         self.apunte = apunte
     def __cmp__(self, other):
         return cmp(self.dinero, other.dinero)
+class ApuntesPorMes(object):
+    mes = int
+    mesStr = ""
+    apuntes = []
+    gastoTotal = 0.0
+    ingresoTotal = 0.0
+    def __init__(self, mes, apuntes, gastoTotal, ingresoTotal, mesStr):
+        self.apuntes = apuntes
+        self.mes = mes
+        self.gastoTotal = gastoTotal
+        self.ingresoTotal = ingresoTotal
+        self.mesStr = mesStr

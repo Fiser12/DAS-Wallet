@@ -6,9 +6,9 @@ from django.core.context_processors import csrf
 from django.contrib import auth
 from django.contrib.auth.forms import UserCreationForm
 from django.http import HttpResponseRedirect
-from datetime import datetime
+from datetime import datetime, date
 from .models import Cuenta, Apunte, Categoria
-from .serializers import CuentaSerializer, ApunteSerializer, CategoriaSerializer, DatosTabla, CategoriaSerializerWithMoreData
+from .serializers import CuentaSerializer, ApunteSerializer, CategoriaSerializer, DatosTabla, CategoriaSerializerWithMoreData, ApuntesPorMes
 import time
 
 ########################
@@ -273,13 +273,78 @@ def CuentaPanel(request, id):
 
 
 def GetTendencias(request):
+    apuntes = Apunte.objects.order_by("fecha")
+    now = datetime.now()
+    if now.month==2&now.day==29:
+        lastYear = date(now.year-1, now.month, now.day-1)
+    else:
+        lastYear = date(now.year-1, now.month, now.day)
+    apuntesOrdenados = []
+    mesAnterior = 0
+
+    i = 0
+    for apunte  in apuntes:
+        if apunte.fecha>lastYear:
+            if mesAnterior!=0:
+                if mesAnterior == apunte.fecha.month:
+                    if apunte.ingresoGastoTransferencia==1:
+                        apunteAnterior.ingresoTotal = apunteAnterior.ingresoTotal+apunte.dinero
+                    elif apunte.ingresoGastoTransferencia==2:
+                        apunteAnterior.gastoTotal = apunteAnterior.gastoTotal+apunte.dinero
+                    mesAnterior = apunte.fecha.month
+                else:
+                    if apunte.ingresoGastoTransferencia==1:
+                        apunteAnterior = ApuntesPorMes(apunte.fecha.month, {apunte}, 0, apunte.dinero, getMesStr(apunte.fecha.month) +" "+ apunte.fecha.year.__str__())
+                        apuntesOrdenados.append(apunteAnterior)
+                    elif apunte.ingresoGastoTransferencia==2:
+                        apunteAnterior = ApuntesPorMes(apunte.fecha.month, {apunte}, 0, apunte.dinero, getMesStr(apunte.fecha.month) +" "+ apunte.fecha.year.__str__())
+                        apuntesOrdenados.append(apunteAnterior)
+                    mesAnterior = apunte.fecha.month
+            else:
+                if apunte.ingresoGastoTransferencia==1:
+                    apunteAnterior = ApuntesPorMes(apunte.fecha.month, {apunte}, 0, apunte.dinero, getMesStr(apunte.fecha.month) +" "+ apunte.fecha.year.__str__())
+                    apuntesOrdenados.append(apunteAnterior)
+                elif apunte.ingresoGastoTransferencia==2:
+                    apunteAnterior = ApuntesPorMes(apunte.fecha.month, {apunte}, 0, apunte.dinero, getMesStr(apunte.fecha.month) +" "+ apunte.fecha.year.__str__())
+                    apuntesOrdenados.append(apunteAnterior)
+                mesAnterior = apunte.fecha.month
+
+
+
     return render_to_response('tendencias.html',
                               {'full_name': request.user.username,
                                'object_list': Cuenta.objects.filter(owner=request.user.id),
                                'categoria_list': Categoria.objects.filter(createdBy=request.user.id),
-                               'today': time.strftime("%Y-%m-%d")})
+                               'today': time.strftime("%Y-%m-%d"),
+                               'apuntesOrdenados': apuntesOrdenados})
 
-
+def getMesStr(i):
+    mes = ""
+    if i == 1:
+        mes = "Enero"
+    elif i == 2:
+        mes = "Febrero"
+    elif i == 3:
+        mes = "Marzo"
+    elif i == 4:
+        mes = "Abril"
+    elif i == 5:
+        mes = "Mayo"
+    elif i == 6:
+        mes = "Junio"
+    elif i == 7:
+        mes = "Julio"
+    elif i == 8:
+        mes = "Agosto"
+    elif i == 9:
+        mes = "Septiembre"
+    elif i == 10:
+        mes = "Octubre"
+    elif i == 11:
+        mes = "Noviembre"
+    elif i == 12:
+        mes = "Diciembre"
+    return mes
 def GetPatrimonio(request):
     return render_to_response('patrimonioNeto.html',
                               {'full_name': request.user.username,
@@ -326,7 +391,6 @@ def GetCategorias(request):
                                'today': time.strftime("%Y-%m-%d"),
                                'categoriasIngresos': categoriasIngresos,
                                'categoriasGastos': categoriasGastos})
-
 
 def GetEstadisticas(request):
     return render_to_response('estadistica.html',
