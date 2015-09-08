@@ -2,7 +2,7 @@ __author__ = 'Fiser'
 from rest_framework import serializers
 
 from Wallet.models import Cuenta, Apunte, Categoria
-
+from datetime import date
 
 class CuentaSerializer(serializers.ModelSerializer):
     class Meta:
@@ -30,5 +30,15 @@ class CategoriaSerializerWithMoreData(object):
         self.dinero = dinero
         self.apuntes = apuntes
         self.categoria = categoria
+    def __cmp__(self, other):
+        return cmp(self.dinero, other.dinero)
+class DatosTabla(object):
+    fecha = ""
+    dinero = 0.0
+    i = 0
+    def __init__(self, fecha, dinero, i):
+        self.dinero = dinero
+        self.fecha = fecha
+        self.i = i
     def __cmp__(self, other):
         return cmp(self.dinero, other.dinero)

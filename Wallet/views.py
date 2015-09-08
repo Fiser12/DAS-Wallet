@@ -8,7 +8,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.http import HttpResponseRedirect
 from datetime import datetime
 from .models import Cuenta, Apunte, Categoria
-from .serializers import CuentaSerializer, ApunteSerializer, CategoriaSerializer, CategoriaSerializerWithMoreData
+from .serializers import CuentaSerializer, ApunteSerializer, CategoriaSerializer, DatosTabla, CategoriaSerializerWithMoreData
 import time
 
 ########################
@@ -52,26 +52,36 @@ def auth_view(request):
 
 @login_required
 def loggedin(request):
+
     model = Cuenta.objects.filter(owner=request.user.id)
     apuntes = Apunte.objects.filter(createdBy2=request.user.id)
-    apuntes = apuntes.order_by('-fecha')
+    apuntes = apuntes.order_by('fecha')
     dinero = 0
+    arrayDatos = []
     for cuenta in model:
-        print(cuenta.nombre)
         dinero = cuenta.saldoInicial + dinero
 
     for apunte in apuntes:
         if apunte.ingresoGastoTransferencia==1:
             dinero = dinero + apunte.dinero
+            arrayDatos.append(DatosTabla(apunte.fecha.__str__(), dinero, apunte.ingresoGastoTransferencia))
+
         elif apunte.ingresoGastoTransferencia==2:
             dinero = dinero - apunte.dinero
+            arrayDatos.append(DatosTabla(apunte.fecha.__str__(), dinero, apunte.ingresoGastoTransferencia))
+
+
+
+    apuntes = apuntes.order_by('-fecha')
+
 
     return render_to_response('loggedin.html',
                               {'full_name': request.user.username,
                                'object_list': model,
                                'categoria_list': Categoria.objects.filter(createdBy=request.user.id),
                                'apuntes_list': apuntes,
-                               'dinero': dinero})
+                               'dinero': dinero,
+                               'arrayDatos': arrayDatos})
 
 def invalid_login(request):
     return render_to_response('invalid_login.html')
@@ -244,7 +254,7 @@ def GetCategorias(request):
     categoriasGastos = []
 
     for categoria in todasCategoriasDesordenadas:
-        apuntes = Apunte.objects.filter(categoria=categoria)
+        apuntes = Apunte.objects.filter(categoria=categoria).filter(createdBy2=request.user.id)
         apuntes.order_by('-fecha')
 
         dineroIngresos = 0
