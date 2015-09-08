@@ -12,75 +12,99 @@
                     </h1>
                 </div>
             </div>
-                        <div class="row">
+            <div class="row">
                 <div class="col-sm-12">
                     {% if dinero < 0 %}
                         <div class="panel panel-danger">
                     {% else %}
                         <div class="panel panel-success">
                     {% endif %}
-                        <div class="panel-heading">
-                            <h3 class="panel-title">Dinero Actual</h3>
-                        </div>
-                        <div class="panel-body text-center">
-                            <h1>
-                                {{ dinero }} €
-                                </br>
-                            </h1>
-                        </div>
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Dinero Actual</h3>
+                    </div>
+                    <div class="panel-body text-center">
+                        <h1>
+                            {{ dinero }} €
+                            </br>
+                        </h1>
+                    </div>
+                    </div>
                     </div>
                 </div>
-            </div>
-            <div class="row">
+                <div class="row">
+                    <div class="col-sm-12">
+                    <div id="graph"></div>
+                </div>
 
-                <div class="col-lg-12">
-                    <div class="table-responsive">
-                        <table class="table table-hover">
-                            <thead>
-                            <tr>
-                                <th>Descripción</th>
-                                <th>Dinero</th>
-                                <th>Cuenta Destino</th>
-                                <th>Fecha</th>
-                                <th>Categoría</th>
-                                <th>Borrar</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            {% for apunte in apunte_list %}
+                </div>
+                <div class="row">
+
+                    <div class="col-lg-12">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                <tr>
+                                    <th>Descripción</th>
+                                    <th>Dinero</th>
+                                    <th>Cuenta Destino</th>
+                                    <th>Fecha</th>
+                                    <th>Categoría</th>
+                                    <th>Borrar</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for apunte in apunte_list %}
+                                    {% if apunte.ingresoGastoTransferencia == 3 %}
+                                        <tr class="warning">
+                                            {% elif apunte.ingresoGastoTransferencia == 1 %}
+                                        <tr class="success">
+                                            {% elif apunte.ingresoGastoTransferencia == 2 %}
+                                        <tr class="danger">
+                                    {% endif %}
+                                <td>{{ apunte.descripcion }}</td>
+                                <td>{{ apunte.dinero }}</td>
                                 {% if apunte.ingresoGastoTransferencia == 3 %}
-                                    <tr class="warning">
-                                        {% elif apunte.ingresoGastoTransferencia == 1 %}
-                                    <tr class="success">
-                                        {% elif apunte.ingresoGastoTransferencia == 2 %}
-                                    <tr class="danger">
+                                    <td>{{ apunte.cuentaDestino.nombre }}</td>
+                                {% else %}
+                                    <td></td>
                                 {% endif %}
-                            <td>{{ apunte.descripcion }}</td>
-                            <td>{{ apunte.dinero }}</td>
-                            {% if apunte.ingresoGastoTransferencia == 3 %}
-                                <td>{{ apunte.cuentaDestino.nombre }}</td>
-                            {% else %}
-                                <td></td>
-                            {% endif %}
-                            <td>{{ apunte.fecha }}</td>
-                            <td>{{ apunte.categoria.titulo }}</td>
-                            <td>
-                                <form style="display: inline" action="/apunte/delete/{{ apunte.id }}" method="get">
-                                    <button class="btn btn-sm btn-danger">Borrar</button>
-                                </form>
-                            </td>
-                            </tr>
-                            {% endfor %}
-                            </tbody>
-                        </table>
+                                <td>{{ apunte.fecha }}</td>
+                                <td>{{ apunte.categoria.titulo }}</td>
+                                <td>
+                                    <form style="display: inline" action="/apunte/delete/{{ apunte.id }}" method="get">
+                                        <button class="btn btn-sm btn-danger">Borrar</button>
+                                    </form>
+                                </td>
+                                </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
+
+                <!-- /.row -->
             </div>
-
-            <!-- /.row -->
-
+            </div>
+            <!-- /.container-fluid -->
         </div>
-        <!-- /.container-fluid -->
-    </div>
+    <script>
+        var day_data = [
+            {% for datos in arrayDatos %}
+                {"period": '{{ datos.fecha }}', "{{ cuenta.nombre }}": {{datos.dinero}}},
+            {% endfor %}
+];
+Morris.Line({
+  element: 'graph',
+  data: day_data,
+  xkey: 'period',
+  ykeys: ['{{ cuenta.nombre }}'],
+  labels: ['{{ cuenta.nombre }}'],
+  /* custom label formatting with `xLabelFormat` */
+  xLabelFormat: function(d) { return (d.getMonth()+1)+'/'+d.getDate()+'/'+d.getFullYear(); },
+  /* setting `xLabels` is recommended when using xLabelFormat */
+  xLabels: 'day'
+});
+    </script>
 
 {% endblock %}

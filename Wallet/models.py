@@ -9,7 +9,6 @@ class Cuenta(models.Model):
     id = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=200)
     saldoInicial = models.FloatField(default=0)
-
     def get_absolute_url(self):
         return reverse('author-detail', kwargs={'pk': self.nombre})
 

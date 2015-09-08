@@ -76,9 +76,11 @@ def loggedin(request):
             anterior = DatosTabla(dato.fecha.__str__(), dato.dinero, dato.i, dato.apunte)
             arrayFinal.append(anterior)
         else:
-
             if anterior.fecha==dato.fecha:
-                anterior.dinero= anterior.dinero + dato.apunte
+                if dato.i==1:
+                    anterior.dinero= anterior.dinero + dato.apunte
+                elif dato.i==2:
+                    anterior.dinero = anterior.dinero - dato.apunte
             else:
                 anterior = DatosTabla(dato.fecha.__str__(), dato.dinero, dato.i, dato.apunte)
                 arrayFinal.append(anterior)
@@ -224,13 +226,41 @@ def CategoriaDelete(request, id):
 def CuentaPanel(request, id):
     cuenta = Cuenta.objects.get(id=id)
     listaApuntes = Apunte.objects.filter(cuentaOrigen=cuenta)
-    listaApuntes = listaApuntes.order_by('-fecha')
+    listaApuntes = listaApuntes.order_by('fecha')
     dinero = cuenta.saldoInicial
+
     for apunte in listaApuntes:
         if apunte.ingresoGastoTransferencia==1:
             dinero = dinero +  apunte.dinero
         elif apunte.ingresoGastoTransferencia==2:
             dinero = dinero - apunte.dinero
+
+    arrayDatos = []
+    for apunte in listaApuntes:
+        if apunte.ingresoGastoTransferencia==1:
+            dinero = dinero + apunte.dinero
+            arrayDatos.append(DatosTabla(apunte.fecha.__str__(), dinero, apunte.ingresoGastoTransferencia, apunte.dinero))
+
+        elif apunte.ingresoGastoTransferencia==2:
+            dinero = dinero - apunte.dinero
+            arrayDatos.append(DatosTabla(apunte.fecha.__str__(), dinero, apunte.ingresoGastoTransferencia, apunte.dinero))
+    arrayFinal = []
+    anterior = None
+    for dato in arrayDatos:
+        if(anterior is None):
+            anterior = DatosTabla(dato.fecha.__str__(), dato.dinero, dato.i, dato.apunte)
+            arrayFinal.append(anterior)
+        else:
+            if anterior.fecha==dato.fecha:
+                if dato.i==1:
+                    anterior.dinero= anterior.dinero + dato.apunte
+                elif dato.i==2:
+                    anterior.dinero = anterior.dinero - dato.apunte
+            else:
+                anterior = DatosTabla(dato.fecha.__str__(), dato.dinero, dato.i, dato.apunte)
+                arrayFinal.append(anterior)
+
+    listaApuntes = listaApuntes.order_by('-fecha')
 
     return render_to_response('cuentas.html',
                               {'full_name': request.user.username,
@@ -238,7 +268,8 @@ def CuentaPanel(request, id):
                                'cuenta': cuenta,
                                'categoria_list': Categoria.objects.filter(createdBy=request.user.id),
                                'apunte_list': listaApuntes,
-                               'dinero': dinero})
+                               'dinero': dinero,
+                               'arrayDatos': arrayFinal})
 
 
 def GetTendencias(request):
