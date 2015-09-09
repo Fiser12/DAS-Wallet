@@ -14,6 +14,7 @@ import time
 ########################
 #######API-REST#########
 ########################
+
 class CuentaViewSet(viewsets.ModelViewSet):
     serializer_class = CuentaSerializer
     queryset = Cuenta.objects.all()
@@ -223,6 +224,7 @@ def CategoriaDelete(request, id):
 #########################
 ######GET FUNTIONS#######
 #########################
+@login_required()
 def CuentaPanel(request, id):
     cuenta = Cuenta.objects.get(id=id)
     listaApuntes = Apunte.objects.filter(cuentaOrigen=cuenta)
@@ -271,7 +273,7 @@ def CuentaPanel(request, id):
                                'dinero': dinero,
                                'arrayDatos': arrayFinal})
 
-
+@login_required()
 def GetTendencias(request):
     apuntes = Apunte.objects.order_by("fecha")
     now = datetime.now()
@@ -352,7 +354,7 @@ def GetPatrimonio(request):
                                'categoria_list': Categoria.objects.filter(createdBy=request.user.id),
                                'today': time.strftime("%Y-%m-%d")})
 
-
+@login_required()
 def GetCategorias(request):
     todasCategoriasDesordenadas = Categoria.objects.filter(createdBy=request.user)
     categoriasIngresos = []
@@ -391,7 +393,7 @@ def GetCategorias(request):
                                'today': time.strftime("%Y-%m-%d"),
                                'categoriasIngresos': categoriasIngresos,
                                'categoriasGastos': categoriasGastos})
-
+@login_required()
 def GetEstadisticas(request):
     return render_to_response('estadistica.html',
                               {'full_name': request.user.username,
@@ -399,7 +401,7 @@ def GetEstadisticas(request):
                                'categoria_list': Categoria.objects.filter(createdBy=request.user.id),
                                'today': time.strftime("%Y-%m-%d")})
 
-
+@login_required()
 def EditarCuentas(request):
     return render_to_response('editarCuentas.html',
                               {'full_name': request.user.username,
@@ -407,13 +409,14 @@ def EditarCuentas(request):
                                'categoria_list': Categoria.objects.filter(createdBy=request.user.id),
                                'today': time.strftime("%Y-%m-%d")})
 
-
+@login_required()
 def EditarCategorias(request):
     return render_to_response('editarCategorias.html',
                               {'full_name': request.user.username,
                                'object_list': Cuenta.objects.filter(owner=request.user.id),
                                'categoria_list': Categoria.objects.filter(createdBy=request.user.id),
                                'today': time.strftime("%Y-%m-%d")})
+@login_required()
 def ViewCreateApunte(request):
     return render_to_response('crearApunte.html',{'full_name': request.user.username,
                                'object_list': Cuenta.objects.filter(owner=request.user.id),
