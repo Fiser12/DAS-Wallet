@@ -93,7 +93,8 @@ def loggedin(request):
                                'categoria_list': Categoria.objects.filter(createdBy=request.user.id),
                                'apuntes_list': apuntes,
                                'dinero': dinero,
-                               'arrayDatos': arrayFinal})
+                               'arrayDatos': arrayFinal,
+                               'apuntesOrdenados': GetTendencias()})
 
 def invalid_login(request):
     return render_to_response('invalid_login.html')
@@ -273,8 +274,7 @@ def CuentaPanel(request, id):
                                'dinero': dinero,
                                'arrayDatos': arrayFinal})
 
-@login_required()
-def GetTendencias(request):
+def GetTendencias():
     apuntes = Apunte.objects.order_by("fecha")
     now = datetime.now()
     if now.month==2&now.day==29:
@@ -313,12 +313,7 @@ def GetTendencias(request):
 
 
 
-    return render_to_response('tendencias.html',
-                              {'full_name': request.user.username,
-                               'object_list': Cuenta.objects.filter(owner=request.user.id),
-                               'categoria_list': Categoria.objects.filter(createdBy=request.user.id),
-                               'today': time.strftime("%Y-%m-%d"),
-                               'apuntesOrdenados': apuntesOrdenados})
+    return apuntesOrdenados
 
 def getMesStr(i):
     mes = ""

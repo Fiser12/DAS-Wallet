@@ -30,9 +30,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-12">
+                <div class="col-sm-6">
                     <div id="graph"></div>
                 </div>
+                    <div class="col-sm-6">
+                    <div id="graph2"></div>
+                </div>
+
             </div>
             <div class="row">
 
@@ -102,4 +106,20 @@ Morris.Line({
   xLabels: 'day'
 });
     </script>
+    <script>
+var day_data = [
+    {% for apunte in apuntesOrdenados %}
+        {"period": "{{ apunte.mesStr }}", "Ingresos": {{ apunte.ingresoTotal }}, "Gastos": {{apunte.gastoTotal}}},
+    {% endfor %}
+];
+Morris.Bar({
+  element: 'graph2',
+  data: day_data,
+  xkey: 'period',
+  ykeys: ['Ingresos', 'Gastos'],
+  labels: ['Ingresos', 'Gastos'],
+  xLabelAngle: 60
+});
+</script>
+
 {% endblock %}
