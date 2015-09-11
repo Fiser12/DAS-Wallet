@@ -181,26 +181,63 @@ def CategoriaCreate(request):
 #####UPDATE FUNTIONS#####
 #########################
 @login_required
-class ApunteUpdate(UpdateView):
-    model = Apunte
-    fields = ['descripcion', 'dinero', 'cuentaOrigen', 'cuentaDestino', 'ingresoGastoTransferencia', 'fecha',
-              'categoria']
-    template_name_suffix = '_update_form'
+def ApunteUpdate(request, id):
+    descripcion = request.POST.get('descripcion', '')
+    dinero = request.POST.get('dinero', '')
+    cuentaOrigenNumero = request.POST.get('cuentaOrigen', '')
+    cuentaOrigen = Cuenta.objects.get(id=int(cuentaOrigenNumero))
+    cuentaDestinoNumero = request.POST.get('cuentaDestino', '')
+    cuentaDestino = Cuenta.objects.get(id=int(cuentaDestinoNumero))
+    ingresoGastoTransferencia = request.POST.get('ingresoGastoTransferencia', '')
+    numero = 0
+    continuar = True;
+    if ingresoGastoTransferencia=="Ingreso":
+        numero = 1
+        cuentaDestino = cuentaOrigen
+
+    elif ingresoGastoTransferencia=="Gasto":
+        numero = 2
+        cuentaDestino = cuentaOrigen
+
+    elif ingresoGastoTransferencia=="Transferencia":
+        numero = 3
+        if cuentaOrigenNumero == cuentaDestinoNumero:
+            continuar = False
+    if continuar:
+        fecha = request.POST.get('fecha', '')
+        categoriaString = request.POST.get('categoria', '')
+        categoria = Categoria.objects.get(id=int(categoriaString))
+        fechaProcesada= datetime.strptime(fecha, '%m/%d/%Y')
+        apunte = Apunte.objects.get(id=int(id))
+        apunte.fecha = fecha
+        apunte.descripcion = descripcion
+        apunte.dinero = dinero
+        apunte.categoria = categoria
+        apunte.ingresoGastoTransferencia = numero
+        apunte.cuentaOrigen = cuentaOrigen
+        apunte.cuentaDestino = cuentaDestino
+        apunte.fecha = fechaProcesada
+        apunte.save()
+    return render_to_response('crearApunte.html',{'full_name': request.user.username,
+                               'object_list': Cuenta.objects.filter(owner=request.user.id),
+                               'categoria_list': Categoria.objects.filter(createdBy=request.user.id),
+                               'today': time.strftime("%Y-%m-%d")})
 
 
 @login_required
-class CuentaUpdate(UpdateView):
-    model = Cuenta
-    fields = ['owner', 'nombre', 'saldoInicial']
-    template_name_suffix = '_update_form'
-
+def CuentaUpdate(request, id):
+    cuenta = Cuenta.objects.get(id=id)
+    cuenta.nombre = request.POST.get('nombre', '')
+    cuenta.saldoInicial = request.POST.get('dinero', '')
+    cuenta.save()
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER','/'))
 
 @login_required
-class CategoriaUpdate(UpdateView):
-    model = Categoria
-    fields = ['titulo']
-    template_name_suffix = '_update_form'
-
+def CategoriaUpdate(request, id):
+    categoria = Categoria.objects.get(id=id)
+    categoria.titulo = request.POST.get('titulo','')
+    categoria.save()
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER','/'))
 
 #########################
 #####DELETE FUNTIONS#####
@@ -414,7 +451,6 @@ def EditarCategorias(request):
                                'object_list': Cuenta.objects.filter(owner=request.user.id),
                                'categoria_list': Categoria.objects.filter(createdBy=request.user.id),
                                'today': time.strftime("%Y-%m-%d")})
-@login_required()
 def ViewCreateApunte(request, id):
     descripcion = request.POST.get('descripcion', '')
     dinero = request.POST.get('dinero', '')
@@ -442,15 +478,8 @@ def ViewCreateApunte(request, id):
         categoriaString = request.POST.get('categoria', '')
         categoria = Categoria.objects.get(id=int(categoriaString))
         fechaProcesada= datetime.strptime(fecha, '%m/%d/%Y')
-        apunte = Apunte.objects.get(id=int(id))
-        apunte.fecha = fecha
-        apunte.categoria = categoria
-        apunte.ingresoGastoTransferencia = numero
-        apunte.cuentaOrigen = cuentaOrigen
-        apunte.cuentaDestino = cuentaDestino
-        apunte.fecha = fechaProcesada
+        apunte = Apunte(id=id, descripcion=descripcion, ingresoGastoTransferencia=numero, dinero=dinero, fecha=fechaProcesada, categoria=categoria, cuentaDestino=cuentaDestino, cuentaOrigen=cuentaOrigen )
         apunte.save()
-
     return render_to_response('crearApunte.html',{'full_name': request.user.username,
                                'object_list': Cuenta.objects.filter(owner=request.user.id),
                                'categoria_list': Categoria.objects.filter(createdBy=request.user.id),

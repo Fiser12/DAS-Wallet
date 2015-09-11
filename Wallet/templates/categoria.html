@@ -13,31 +13,19 @@
                 </div>
             </div>
             <div class="row">
-            <div id="graph2" class="text-center" hidden></div>
-            <div id="graph" class="text-center"></div>
+                <div id="graph" class="text-center"></div>
 
-            <div class="col-lg-12 text-center " style="height:50px;" data-toggle="buttons">
-                <label class="btn btn-primary">
-                    <input type="radio" name="ingresoGastoTransferencia" class="checkboxControl" id="ingresosCategoria" value="Ingreso"> Ingreso
-                </label>
-                <label class="btn btn-primary active">
-                    <input type="radio" name="ingresoGastoTransferencia" class="checkboxControl" id="gastosCategoria" value="Gasto"
-                           checked="checked"> Gasto
-                </label>
-                <script>
-
-                    $(".checkboxControl").change(function () {
-                    if (document.getElementById('ingresosCategoria').checked) {
-                        $("#graph").hide()
-                        $("#graph2").show()
-                    }else if (document.getElementById('gastosCategoria').checked) {
-                        $("#graph2").hide()
-                        $("#graph").show()
-                    }
-
-                    });
-                </script>
-            </div>
+                <div class="col-lg-12 text-center " style="height:50px;" data-toggle="buttons">
+                    <label class="btn btn-primary">
+                        <input type="radio" name="ingresoGastoTransferencia" class="checkboxControl"
+                               id="ingresosCategoria" value="Ingreso"> Ingreso
+                    </label>
+                    <label class="btn btn-primary active">
+                        <input type="radio" name="ingresoGastoTransferencia" class="checkboxControl"
+                               id="gastosCategoria" value="Gasto"
+                               checked="checked"> Gasto
+                    </label>
+                </div>
             </div>
             <!-- /.row -->
             <div class="row">
@@ -57,46 +45,50 @@
                             </thead>
                             <tbody>
                             {% for categorias in categoriasIngresos %}
-                            {% for apunte in categorias.apuntes %}
-                                <tr class="apunteidIngresos{{ categorias.categoria.id }} hidemeplease" hidden>
-                                <td>{{ apunte.descripcion }}</td>
-                                <td>{{ apunte.dinero }}</td>
-                                    {% if apunte.ingresoGastoTransferencia == 3 %}
-                                        <td>{{ apunte.cuentaOrigen.nombre }} -> {{ apunte.cuentaDestino.nombre }}</td>
-                                    {% else %}
-                                        <td>{{ apunte.cuentaOrigen.nombre }}</td>
-                                    {% endif %}
-                                <td>{{ apunte.fecha }}</td>
-                                <td>{{ apunte.categoria.titulo }}</td>
+                                {% for apunte in categorias.apuntes %}
+                                    <tr class="apunteidIngresos{{ categorias.categoria.id }} hidemeplease" hidden>
+                                        <td>{{ apunte.descripcion }}</td>
+                                        <td>{{ apunte.dinero }}</td>
+                                        {% if apunte.ingresoGastoTransferencia == 3 %}
+                                            <td>{{ apunte.cuentaOrigen.nombre }}
+                                                -> {{ apunte.cuentaDestino.nombre }}</td>
+                                        {% else %}
+                                            <td>{{ apunte.cuentaOrigen.nombre }}</td>
+                                        {% endif %}
+                                        <td>{{ apunte.fecha }}</td>
+                                        <td>{{ apunte.categoria.titulo }}</td>
 
-                                <td>
-                                    <form style="display: inline" action="/apunte/delete/{{ apunte.id }}" method="get">
-                                        <button class="btn btn-sm btn-danger">Borrar</button>
-                                    </form>
-                                </td>
-                                </tr>
-                             {% endfor %}
+                                        <td>
+                                            <form style="display: inline" action="/apunte/delete/{{ apunte.id }}"
+                                                  method="get">
+                                                <button class="btn btn-sm btn-danger">Borrar</button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
                             {% endfor %}
                             {% for categorias in categoriasGastos %}
-                            {% for apunte in categorias.apuntes %}
-                            <tr class="apunteidGastos{{ categorias.categoria.id }} hidemeplease">
-                            <td>{{ apunte.descripcion }}</td>
-                            <td>{{ apunte.dinero }}</td>
-                            {% if apunte.ingresoGastoTransferencia == 3 %}
-                                <td>{{ apunte.cuentaOrigen.nombre }} -> {{ apunte.cuentaDestino.nombre }}</td>
-                            {% else %}
-                                <td>{{ apunte.cuentaOrigen.nombre }}</td>
-                            {% endif %}
-                            <td>{{ apunte.fecha }}</td>
-                            <td>{{ apunte.categoria.titulo }}</td>
+                                {% for apunte in categorias.apuntes %}
+                                    <tr class="apunteidGastos{{ categorias.categoria.id }} hidemeplease">
+                                        <td>{{ apunte.descripcion }}</td>
+                                        <td>{{ apunte.dinero }}</td>
+                                        {% if apunte.ingresoGastoTransferencia == 3 %}
+                                            <td>{{ apunte.cuentaOrigen.nombre }}
+                                                -> {{ apunte.cuentaDestino.nombre }}</td>
+                                        {% else %}
+                                            <td>{{ apunte.cuentaOrigen.nombre }}</td>
+                                        {% endif %}
+                                        <td>{{ apunte.fecha }}</td>
+                                        <td>{{ apunte.categoria.titulo }}</td>
 
-                            <td>
-                                <form style="display: inline" action="/apunte/delete/{{ apunte.id }}" method="get">
-                                    <button class="btn btn-sm btn-danger">Borrar</button>
-                                </form>
-                            </td>
-                            </tr>
-                             {% endfor %}
+                                        <td>
+                                            <form style="display: inline" action="/apunte/delete/{{ apunte.id }}"
+                                                  method="get">
+                                                <button class="btn btn-sm btn-danger">Borrar</button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
 
                             {% endfor %}
 
@@ -110,32 +102,60 @@
 
         <!-- /.container-fluid -->
     </div>
-    <script>Morris.Donut({
-        element: 'graph2',
-        data: [
-            {% for categoria in categoriasIngresos %}
-                {% if categoria.dinero > 0 %}
-                    {value: {{ categoria.dinero }}, label: '{{ categoria.categoria.titulo }}', id: {{ categoria.categoria.id }}, ingGas: 'Ingresos'},
-                {% endif %}
-            {% endfor %}
-        ],
-        formatter: function (x) {
-            return x + "€"
+    <script>
+        var donut = Morris.Donut({
+            element: 'graph',
+            data: [
+                {% for categoria in categoriasGastos %}
+                    {% if categoria.dinero > 0 %}
+                        {
+                            value: {{ categoria.dinero }},
+                            label: '{{ categoria.categoria.titulo }}',
+                            id: {{ categoria.categoria.id }},
+                            ingGas: 'Gastos'
+                        },
+                    {% endif %}
+                {% endfor %}
+            ],
+            formatter: function (x) {
+                return x + "€"
+            }
+        });
+        var data = [{% for categoria in categoriasGastos %}
+            {% if categoria.dinero > 0 %}
+                {
+                    value: {{ categoria.dinero }},
+                    label: '{{ categoria.categoria.titulo }}',
+                    id: {{ categoria.categoria.id }},
+                    ingGas: 'Gastos'
+                },
+            {% endif %}
+        {% endfor %}];
+        var data2 = [{% for categoria in categoriasIngresos %}
+            {% if categoria.dinero > 0 %}
+                {
+                    value: {{ categoria.dinero }},
+                    label: '{{ categoria.categoria.titulo }}',
+                    id: {{ categoria.categoria.id }},
+                    ingGas: 'Ingresos'
+                },
+            {% endif %}
+        {% endfor %}];
+
+        donut.options.xLabelFormat = function (date) {
+            return formatDate(date);
         }
-    });
-    </script>
-    <script>Morris.Donut({
-        element: 'graph',
-        data: [
-            {% for categoria in categoriasGastos %}
-                {% if categoria.dinero > 0 %}
-                    {value: {{ categoria.dinero }}, label: '{{ categoria.categoria.titulo }}', id: {{ categoria.categoria.id }}, ingGas: 'Gastos'},
-                {% endif %}
-            {% endfor %}
-        ],
-        formatter: function (x) {
-            return x + "€"
-        }
-    });
+        donut.xLabelAngle = 60;
+
+        $(".checkboxControl").change(function () {
+            if (document.getElementById('ingresosCategoria').checked) {
+                donut.setData(data2);
+
+
+            } else if (document.getElementById('gastosCategoria').checked) {
+                donut.setData(data);
+            }
+        });
+
     </script>
 {% endblock %}
