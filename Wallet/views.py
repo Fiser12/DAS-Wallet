@@ -228,25 +228,39 @@ def CategoriaDelete(request, id):
 @login_required()
 def CuentaPanel(request, id):
     cuenta = Cuenta.objects.get(id=id)
-    listaApuntes = Apunte.objects.filter(cuentaOrigen=cuenta)
+    listaApuntes = Apunte.objects.filter(createdBy2=request.user.id)
     listaApuntes = listaApuntes.order_by('fecha')
+    dinero2 = cuenta.saldoInicial
     dinero = cuenta.saldoInicial
 
     for apunte in listaApuntes:
-        if apunte.ingresoGastoTransferencia==1:
-            dinero = dinero +  apunte.dinero
-        elif apunte.ingresoGastoTransferencia==2:
-            dinero = dinero - apunte.dinero
-
+        if apunte.cuentaOrigen==cuenta:
+            if apunte.ingresoGastoTransferencia==1:
+               dinero = dinero + apunte.dinero
+            elif apunte.ingresoGastoTransferencia==2:
+               dinero = dinero - apunte.dinero
+            elif apunte.ingresoGastoTransferencia==3:
+                dinero = dinero - apunte.dinero
+        if apunte.cuentaDestino==cuenta:
+            if apunte.ingresoGastoTransferencia==3:
+                dinero = dinero + apunte.dinero
     arrayDatos = []
     for apunte in listaApuntes:
-        if apunte.ingresoGastoTransferencia==1:
-            dinero = dinero + apunte.dinero
-            arrayDatos.append(DatosTabla(apunte.fecha.__str__(), dinero, apunte.ingresoGastoTransferencia, apunte.dinero))
+        if apunte.cuentaOrigen==cuenta:
+            if apunte.ingresoGastoTransferencia==1:
+                dinero2 = dinero2 + apunte.dinero
+                arrayDatos.append(DatosTabla(apunte.fecha.__str__(), dinero2, apunte.ingresoGastoTransferencia, apunte.dinero))
+            elif apunte.ingresoGastoTransferencia==2:
+                dinero2 = dinero2 - apunte.dinero
+                arrayDatos.append(DatosTabla(apunte.fecha.__str__(), dinero2, apunte.ingresoGastoTransferencia, apunte.dinero))
+            elif apunte.ingresoGastoTransferencia==3:
+                dinero2 = dinero2 - apunte.dinero
+                arrayDatos.append(DatosTabla(apunte.fecha.__str__(), dinero2, 3, apunte.dinero))
+        if apunte.cuentaDestino==cuenta:
+            if apunte.ingresoGastoTransferencia==3:
+                dinero2 = dinero2 + apunte.dinero
+                arrayDatos.append(DatosTabla(apunte.fecha.__str__(), dinero2, 4, apunte.dinero))
 
-        elif apunte.ingresoGastoTransferencia==2:
-            dinero = dinero - apunte.dinero
-            arrayDatos.append(DatosTabla(apunte.fecha.__str__(), dinero, apunte.ingresoGastoTransferencia, apunte.dinero))
     arrayFinal = []
     anterior = None
     for dato in arrayDatos:
@@ -259,18 +273,20 @@ def CuentaPanel(request, id):
                     anterior.dinero= anterior.dinero + dato.apunte
                 elif dato.i==2:
                     anterior.dinero = anterior.dinero - dato.apunte
+                elif dato.i==3:
+                    anterior.dinero = anterior.dinero - dato.apunte
+                elif dato.i==4:
+                    anterior.dinero = anterior.dinero + dato.apunte
             else:
                 anterior = DatosTabla(dato.fecha.__str__(), dato.dinero, dato.i, dato.apunte)
                 arrayFinal.append(anterior)
-
-    listaApuntes = listaApuntes.order_by('-fecha')
 
     return render_to_response('cuentas.html',
                               {'full_name': request.user.username,
                                'object_list': Cuenta.objects.filter(owner=request.user.id),
                                'cuenta': cuenta,
                                'categoria_list': Categoria.objects.filter(createdBy=request.user.id),
-                               'apunte_list': listaApuntes,
+                               'apunte_list': Apunte.objects.all().filter(cuentaOrigen=cuenta).order_by('-fecha'),
                                'dinero': dinero,
                                'arrayDatos': arrayFinal})
 
@@ -299,15 +315,16 @@ def GetTendencias():
                         apunteAnterior = ApuntesPorMes(apunte.fecha.month, {apunte}, 0, apunte.dinero, getMesStr(apunte.fecha.month) +" "+ apunte.fecha.year.__str__())
                         apuntesOrdenados.append(apunteAnterior)
                     elif apunte.ingresoGastoTransferencia==2:
-                        apunteAnterior = ApuntesPorMes(apunte.fecha.month, {apunte}, 0, apunte.dinero, getMesStr(apunte.fecha.month) +" "+ apunte.fecha.year.__str__())
+                        apunteAnterior = ApuntesPorMes(apunte.fecha.month, {apunte}, apunte.dinero, 0, getMesStr(apunte.fecha.month) +" "+ apunte.fecha.year.__str__())
                         apuntesOrdenados.append(apunteAnterior)
                     mesAnterior = apunte.fecha.month
             else:
                 if apunte.ingresoGastoTransferencia==1:
                     apunteAnterior = ApuntesPorMes(apunte.fecha.month, {apunte}, 0, apunte.dinero, getMesStr(apunte.fecha.month) +" "+ apunte.fecha.year.__str__())
                     apuntesOrdenados.append(apunteAnterior)
+
                 elif apunte.ingresoGastoTransferencia==2:
-                    apunteAnterior = ApuntesPorMes(apunte.fecha.month, {apunte}, 0, apunte.dinero, getMesStr(apunte.fecha.month) +" "+ apunte.fecha.year.__str__())
+                    apunteAnterior = ApuntesPorMes(apunte.fecha.month, {apunte}, apunte.dinero, 0, getMesStr(apunte.fecha.month) +" "+ apunte.fecha.year.__str__())
                     apuntesOrdenados.append(apunteAnterior)
                 mesAnterior = apunte.fecha.month
 
