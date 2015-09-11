@@ -359,13 +359,6 @@ def getMesStr(i):
     elif i == 12:
         mes = "Diciembre"
     return mes
-def GetPatrimonio(request):
-    return render_to_response('patrimonioNeto.html',
-                              {'full_name': request.user.username,
-                               'object_list': Cuenta.objects.filter(owner=request.user.id),
-                               'categoria_list': Categoria.objects.filter(createdBy=request.user.id),
-                               'today': time.strftime("%Y-%m-%d")})
-
 @login_required()
 def GetCategorias(request):
     todasCategoriasDesordenadas = Categoria.objects.filter(createdBy=request.user)
@@ -406,15 +399,14 @@ def GetCategorias(request):
                                'categoriasIngresos': categoriasIngresos,
                                'categoriasGastos': categoriasGastos})
 @login_required()
-def GetEstadisticas(request):
-    return render_to_response('estadistica.html',
-                              {'full_name': request.user.username,
-                               'object_list': Cuenta.objects.filter(owner=request.user.id),
-                               'categoria_list': Categoria.objects.filter(createdBy=request.user.id),
-                               'today': time.strftime("%Y-%m-%d")})
+def EditarCuentas(request, id):
+    nombre = request.POST.get('nombre', '')
+    saldoInicial = request.POST.get('saldoInicial', '')
+    cuenta = Cuenta.objects.get(id=int(id))
+    cuenta.nombre = nombre
+    cuenta.saldoInicial = saldoInicial
+    cuenta.save()
 
-@login_required()
-def EditarCuentas(request):
     return render_to_response('editarCuentas.html',
                               {'full_name': request.user.username,
                                'object_list': Cuenta.objects.filter(owner=request.user.id),
@@ -422,14 +414,53 @@ def EditarCuentas(request):
                                'today': time.strftime("%Y-%m-%d")})
 
 @login_required()
-def EditarCategorias(request):
+def EditarCategorias(request, id):
+    categoria = Categoria.objects.get(id=int(id))
+    nombre = request.POST.get('titulo', '')
+    categoria.titulo = nombre
+    categoria.save()
     return render_to_response('editarCategorias.html',
                               {'full_name': request.user.username,
                                'object_list': Cuenta.objects.filter(owner=request.user.id),
                                'categoria_list': Categoria.objects.filter(createdBy=request.user.id),
                                'today': time.strftime("%Y-%m-%d")})
 @login_required()
-def ViewCreateApunte(request):
+def ViewCreateApunte(request, id):
+    descripcion = request.POST.get('descripcion', '')
+    dinero = request.POST.get('dinero', '')
+    cuentaOrigenNumero = request.POST.get('cuentaOrigen', '')
+    cuentaOrigen = Cuenta.objects.get(id=int(cuentaOrigenNumero))
+    cuentaDestinoNumero = request.POST.get('cuentaDestino', '')
+    cuentaDestino = Cuenta.objects.get(id=int(cuentaDestinoNumero))
+    ingresoGastoTransferencia = request.POST.get('ingresoGastoTransferencia', '')
+    numero = 0
+    continuar = True;
+    if ingresoGastoTransferencia=="Ingreso":
+        numero = 1
+        cuentaDestino = cuentaOrigen
+
+    elif ingresoGastoTransferencia=="Gasto":
+        numero = 2
+        cuentaDestino = cuentaOrigen
+
+    elif ingresoGastoTransferencia=="Transferencia":
+        numero = 3
+        if cuentaOrigenNumero == cuentaDestinoNumero:
+            continuar = False
+    if continuar:
+        fecha = request.POST.get('fecha', '')
+        categoriaString = request.POST.get('categoria', '')
+        categoria = Categoria.objects.get(id=int(categoriaString))
+        fechaProcesada= datetime.strptime(fecha, '%m/%d/%Y')
+        apunte = Apunte.objects.get(id=int(id))
+        apunte.fecha = fecha
+        apunte.categoria = categoria
+        apunte.ingresoGastoTransferencia = numero
+        apunte.cuentaOrigen = cuentaOrigen
+        apunte.cuentaDestino = cuentaDestino
+        apunte.fecha = fechaProcesada
+        apunte.save()
+
     return render_to_response('crearApunte.html',{'full_name': request.user.username,
                                'object_list': Cuenta.objects.filter(owner=request.user.id),
                                'categoria_list': Categoria.objects.filter(createdBy=request.user.id),
