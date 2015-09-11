@@ -398,15 +398,9 @@ def GetCategorias(request):
                                'today': time.strftime("%Y-%m-%d"),
                                'categoriasIngresos': categoriasIngresos,
                                'categoriasGastos': categoriasGastos})
-@login_required()
-def EditarCuentas(request, id):
-    nombre = request.POST.get('nombre', '')
-    saldoInicial = request.POST.get('saldoInicial', '')
-    cuenta = Cuenta.objects.get(id=int(id))
-    cuenta.nombre = nombre
-    cuenta.saldoInicial = saldoInicial
-    cuenta.save()
 
+@login_required()
+def EditarCuentas(request):
     return render_to_response('editarCuentas.html',
                               {'full_name': request.user.username,
                                'object_list': Cuenta.objects.filter(owner=request.user.id),
@@ -414,11 +408,7 @@ def EditarCuentas(request, id):
                                'today': time.strftime("%Y-%m-%d")})
 
 @login_required()
-def EditarCategorias(request, id):
-    categoria = Categoria.objects.get(id=int(id))
-    nombre = request.POST.get('titulo', '')
-    categoria.titulo = nombre
-    categoria.save()
+def EditarCategorias(request):
     return render_to_response('editarCategorias.html',
                               {'full_name': request.user.username,
                                'object_list': Cuenta.objects.filter(owner=request.user.id),
