@@ -188,7 +188,7 @@ def ApunteUpdate(request, id):
     cuentaOrigen = Cuenta.objects.get(id=int(cuentaOrigenNumero))
     cuentaDestinoNumero = request.POST.get('cuentaDestino', '')
     cuentaDestino = Cuenta.objects.get(id=int(cuentaDestinoNumero))
-    ingresoGastoTransferencia = request.POST.get('ingresoGastoTransferencia', '')
+    ingresoGastoTransferencia = request.POST.get('ingresoGastoTransferencia2', '')
     numero = 0
     continuar = True;
     if ingresoGastoTransferencia=="Ingreso":
@@ -218,10 +218,7 @@ def ApunteUpdate(request, id):
         apunte.cuentaDestino = cuentaDestino
         apunte.fecha = fechaProcesada
         apunte.save()
-    return render_to_response('crearApunte.html',{'full_name': request.user.username,
-                               'object_list': Cuenta.objects.filter(owner=request.user.id),
-                               'categoria_list': Categoria.objects.filter(createdBy=request.user.id),
-                               'today': time.strftime("%Y-%m-%d")})
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER','/'))
 
 
 @login_required
@@ -336,9 +333,9 @@ def GetTendencias():
         lastYear = date(now.year-1, now.month, now.day)
     apuntesOrdenados = []
     mesAnterior = 0
-
+    apunteAnterior = ApuntesPorMes
     i = 0
-    for apunte  in apuntes:
+    for apunte in apuntes:
         if apunte.fecha>lastYear:
             if mesAnterior!=0:
                 if mesAnterior == apunte.fecha.month:

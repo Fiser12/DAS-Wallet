@@ -50,11 +50,11 @@
                                 <tbody>
                                 {% for apunte in apunte_list %}
                                     {% if apunte.ingresoGastoTransferencia == 3 %}
-                                        <tr class="warning clickable-row" data-toggle="modal" data-id="{{ apunte.id }}" data-target="#myModal1">
+                                        <tr class="warning clickable-row" data-toggle="modal" data-id="{{ apunte.id }}" descripcion="{{ apunte.descripcion }}" dinero={{ apunte.dinero }} cuentaOrigen="{{ apunte.cuentaOrigen.id }}" cuentaDestino="{{ apunte.cuentaDestino.id }}" fecha="{{ apunte.fecha }}" categoria="{{ apunte.categoria.id }}" ingresoGastoTransferencia="{{ apunte.ingresoGastoTransferencia }}" data-target="#myModal1">
                                             {% elif apunte.ingresoGastoTransferencia == 1 %}
-                                        <tr class="success clickable-row" data-toggle="modal" data-id="{{ apunte.id }}" data-target="#myModal1">
+                                        <tr class="success clickable-row" data-toggle="modal" data-id="{{ apunte.id }}" descripcion="{{ apunte.descripcion }}" dinero={{ apunte.dinero }} cuentaOrigen="{{ apunte.cuentaOrigen.id }}" cuentaDestino="{{ apunte.cuentaDestino.id }}" fecha="{{ apunte.fecha }}" categoria="{{ apunte.categoria.id }}" ingresoGastoTransferencia="{{ apunte.ingresoGastoTransferencia }}" data-target="#myModal1">
                                             {% elif apunte.ingresoGastoTransferencia == 2 %}
-                                        <tr class="danger clickable-row" data-toggle="modal" data-id="{{ apunte.id }}" data-target="#myModal1">
+                                        <tr class="danger clickable-row" data-toggle="modal" data-id="{{ apunte.id }}" descripcion="{{ apunte.descripcion }}" dinero={{ apunte.dinero }} cuentaOrigen="{{ apunte.cuentaOrigen.id }}" cuentaDestino="{{ apunte.cuentaDestino.id }}" fecha="{{ apunte.fecha }}" categoria="{{ apunte.categoria.id }}" ingresoGastoTransferencia="{{ apunte.ingresoGastoTransferencia }}" data-target="#myModal1">
                                     {% endif %}
                                 <td>{{ apunte.descripcion }}</td>
                                 <td>{{ apunte.dinero }}</td>
