@@ -47,11 +47,21 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="categoria.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Wallet/templates/categoria.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-14.375">
+              <caret line="47" column="454" selection-start-line="47" selection-start-column="454" selection-end-line="47" selection-end-column="454" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="baseInterna.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Wallet/templates/baseInterna.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.8737864">
-              <caret line="445" column="86" selection-start-line="445" selection-start-column="86" selection-end-line="445" selection-end-column="86" />
+            <state vertical-scroll-proportion="0.33252427">
+              <caret line="496" column="108" selection-start-line="496" selection-start-column="101" selection-end-line="496" selection-end-column="108" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#1;n#fieldset#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#6;n#div#1;n#fieldset#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -148,10 +158,10 @@
         <option value="$PROJECT_DIR$/Wallet/static/Wallet/js/bootstrap-datetimepicker.fiser.js" />
         <option value="$PROJECT_DIR$/Wallet/templates/editarCuentas.html" />
         <option value="$PROJECT_DIR$/Wallet/templates/editarCategorias.html" />
-        <option value="$PROJECT_DIR$/Wallet/templates/categoria.html" />
         <option value="$PROJECT_DIR$/WalletApp/settings.py" />
         <option value="$PROJECT_DIR$/WalletApp/urls.py" />
         <option value="$PROJECT_DIR$/Wallet/views.py" />
+        <option value="$PROJECT_DIR$/Wallet/templates/categoria.html" />
         <option value="$PROJECT_DIR$/Wallet/templates/baseInterna.html" />
       </list>
     </option>
@@ -969,14 +979,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Wallet/templates/categoria.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.791667">
-          <caret line="130" column="36" selection-start-line="130" selection-start-column="36" selection-end-line="130" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Wallet/templates/crearApunte.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.2742718">
@@ -1037,10 +1039,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Wallet/templates/categoria.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-14.375">
+          <caret line="47" column="454" selection-start-line="47" selection-start-column="454" selection-end-line="47" selection-end-column="454" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Wallet/templates/baseInterna.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.8737864">
-          <caret line="445" column="86" selection-start-line="445" selection-start-column="86" selection-end-line="445" selection-end-column="86" />
+        <state vertical-scroll-proportion="0.33252427">
+          <caret line="496" column="108" selection-start-line="496" selection-start-column="101" selection-end-line="496" selection-end-column="108" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#1;n#fieldset#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#6;n#div#1;n#fieldset#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
