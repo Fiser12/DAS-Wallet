@@ -491,6 +491,6 @@ def getApuntes(request):
         for apunte in apuntes:
             if apunte.descripcion.__contains__(q):
                 fechaProcesada= apunte.fecha.__str__()
-                data.append({'id': apunte.id, 'descripcion': apunte.descripcion, 'dinero': apunte.dinero, 'categoria': apunte.categoria.id, 'cuentaOrigen': apunte.cuentaOrigen.id, 'cuentaDestino': apunte.cuentaDestino.id, 'fecha': fechaProcesada})
+                data.append({'id': apunte.id, 'descripcion': apunte.descripcion, 'dinero': apunte.dinero, 'categoria': apunte.categoria.id, 'categoriaNombre': apunte.categoria.titulo, 'cuentaOrigen': apunte.cuentaOrigen.id, 'cuentaOrigenNombre': apunte.cuentaOrigen.nombre, 'cuentaDestino': apunte.cuentaDestino.id, 'fecha': fechaProcesada, 'ingresoGastoTransferencia': apunte.ingresoGastoTransferencia})
         json_response = json.dumps(data)
         return HttpResponse(json_response, 'application/json')

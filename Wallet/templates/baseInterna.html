@@ -99,7 +99,6 @@
                 <div class="navbar-form" role="search">
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="Buscar" name="q" id="cajonBuscar">
-
                         <div class="input-group-btn">
                             <button class="btn btn-default" id="botonBuscar"><i class="glyphicon glyphicon-search"></i>
                             </button>
@@ -295,9 +294,9 @@
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                     <h3 class="modal-title">Busqueda de apuntes</h3>
                 </div>
-                <div class="modal-body">
-                    <table class="table table-striped" id="tblGrid">
-                        <thead id="tblHead">
+                <div class="table-responsive">
+                    <table class="table table-hover" id="tblGrid">
+                        <thead>
                         <tr>
                             <th>Descripción</th>
                             <th>Dinero</th>
@@ -458,6 +457,38 @@
             }
 
         });
+        //Es para lo mismo pero para que funcione con las busquedas
+        $(".clickable-row2").click(function () {
+            alert("hilter")
+            document.getElementById('formsend').action = "/apunte/editar/" + $(this).attr("data-id") + "/"
+            document.getElementById('deletesend').href = "/apunte/delete/" + $(this).attr("data-id") + "/";
+            document.getElementById('descripcion').value = $(this).attr("descripcion");
+            document.getElementById('dinero').value = $(this).attr("dinero");
+            document.getElementById('focusSelector1').value = $(this).attr("cuentaOrigen");
+            document.getElementById('focusSelector21').value = $(this).attr("cuentaDestino");
+            document.getElementById('date1').value = $(this).attr("fecha");
+            document.getElementById('categoria').value = $(this).attr("categoria");
+            number = $(this).attr("ingresoGastoTransferencia") - 1;
+            $('input:radio[name=ingresoGastoTransferencia2]')[number].checked = true;
+            if (number == 0) {
+                $("#btn11").addClass("active")
+                $("#btn13").removeClass("active")
+                $("#btn12").removeClass("active")
+            }
+            else if (number == 1) {
+                $("#btn11").removeClass("active")
+                $("#btn12").addClass("active")
+                $("#btn13").removeClass("active")
+            }
+            else if (number == 2) {
+                $("#btn11").removeClass("active")
+                $("#btn12").removeClass("active")
+                $("#btn13").addClass("active")
+
+            }
+
+        });
+
     });
     function formatDate(date) {
         var d = new Date(date),
@@ -477,11 +508,17 @@
             data: {term: $('#cajonBuscar').val()},
             dataType: "json",
             success: function (results) {
+                 $(".removeRow").remove();
                 for (i = 0; i < results.length; i++) {
-                    $('#tblGrid tbody').after('<tr><td>'+results[i].descripcion+'</td>'+'<td>'+results[i].dinero+'</td>'+'<td>'+results[i].cuentaOrigen+'</td>'+'<td>'+results[i].fecha+'</td>'+'<td>'+results[i].categoria+'</td></tr>');
+                    if(results[i].ingresoGastoTransferencia==1) {
+                        $('#tblGrid tbody').after('<tr class="removeRow success clickable-row2" data-toggle="modal" data-dismiss="modal" data-id="'+results[i].id+'" descripcion="'+results[i].descripcion+'" dinero='+results[i].dinero+' cuentaOrigen="'+results[i].cuentaOrigen+'" cuentaDestino="'+results[i].cuentaDestino+'" fecha="'+results[i].fecha+'" categoria="'+results[i].categoria+'" ingresoGastoTransferencia="'+results[i].ingresoGastoTransferencia+'" data-target="#myModal1"><td>' + results[i].descripcion + '</td>' + '<td>' + results[i].dinero + '</td>' + '<td>' + results[i].cuentaOrigenNombre + '</td>' + '<td>' + results[i].fecha + '</td>' + '<td>' + results[i].categoriaNombre + '</td></tr>');
+                    }else if(results[i].ingresoGastoTransferencia==2){
+                        $('#tblGrid tbody').after('<tr class="removeRow danger clickable-row2" data-toggle="modal" data-dismiss="modal" data-id="'+results[i].id+'" descripcion="'+results[i].descripcion+'" dinero='+results[i].dinero+' cuentaOrigen="'+results[i].cuentaOrigen+'" cuentaDestino="'+results[i].cuentaDestino+'" fecha="'+results[i].fecha+'" categoria="'+results[i].categoria+'" ingresoGastoTransferencia="'+results[i].ingresoGastoTransferencia+'" data-target="#myModal1"><td>' + results[i].descripcion + '</td>' + '<td>' + results[i].dinero + '</td>' + '<td>' + results[i].cuentaOrigenNombre + '</td>' + '<td>' + results[i].fecha + '</td>' + '<td>' + results[i].categoriaNombre + '</td></tr>');
+                    }else if(results[i].ingresoGastoTransferencia==3){
+                        $('#tblGrid tbody').after('<tr class="removeRow warning clickable-row2" data-toggle="modal" data-dismiss="modal" data-id="'+results[i].id+'" descripcion="'+results[i].descripcion+'" dinero='+results[i].dinero+' cuentaOrigen="'+results[i].cuentaOrigen+'" cuentaDestino="'+results[i].cuentaDestino+'" fecha="'+results[i].fecha+'" categoria="'+results[i].categoria+'" ingresoGastoTransferencia="'+results[i].ingresoGastoTransferencia+'" data-target="#myModal1"><td>' + results[i].descripcion + '</td>' + '<td>' + results[i].dinero + '</td>' + '<td>' + results[i].cuentaOrigenNombre + '</td>' + '<td>' + results[i].fecha + '</td>' + '<td>' + results[i].categoriaNombre + '</td></tr>');
+                    }
                 }
                 $('#myModal3').modal('show');
-
             }
         });
 
