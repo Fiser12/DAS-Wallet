@@ -37,14 +37,32 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WalletApp/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="37" column="4" selection-start-line="37" selection-start-column="4" selection-end-line="37" selection-end-column="4" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="editarCategorias.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Wallet/templates/editarCategorias.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-2.5">
+              <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="baseInterna.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Wallet/templates/baseInterna.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.74264705">
-              <caret line="240" column="60" selection-start-line="240" selection-start-column="60" selection-end-line="240" selection-end-column="60" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#div#1;n#fieldset#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="0.19902913">
+              <caret line="441" column="17" selection-start-line="441" selection-start-column="17" selection-end-line="441" selection-end-column="17" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -52,19 +70,21 @@
       <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WalletApp/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="48" column="79" selection-start-line="48" selection-start-column="48" selection-end-line="48" selection-end-column="79" />
+            <state vertical-scroll-proportion="-19.481482">
+              <caret line="51" column="69" selection-start-line="51" selection-start-column="69" selection-end-line="51" selection-end-column="69" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="crearApunte.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Wallet/templates/crearApunte.html">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Wallet/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.294118">
-              <caret line="35" column="26" selection-start-line="35" selection-start-column="25" selection-end-line="35" selection-end-column="26" />
-              <folding />
+            <state vertical-scroll-proportion="-10.592592">
+              <caret line="492" column="21" selection-start-line="492" selection-start-column="16" selection-end-line="492" selection-end-column="21" />
+              <folding>
+                <element signature="e#0#57#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -113,15 +133,12 @@
         <option value="$PROJECT_DIR$/Wallet/templates/cuenta_list.html" />
         <option value="$PROJECT_DIR$/Wallet/controller/AccountsController.py" />
         <option value="$PROJECT_DIR$/Wallet/templates/author_form.html" />
-        <option value="$PROJECT_DIR$/WalletApp/settings.py" />
         <option value="$PROJECT_DIR$/Wallet/forms.py" />
         <option value="$PROJECT_DIR$/Wallet/templates/patrimonioNeto.html" />
         <option value="$PROJECT_DIR$/Wallet/templates/estadistica.html" />
-        <option value="$PROJECT_DIR$/Wallet/templates/editarCategorias.html" />
         <option value="$PROJECT_DIR$/Wallet/static/Wallet/js/bootstrap-datetimepicker.min.js" />
         <option value="$PROJECT_DIR$/Wallet/templates/crearApunte.html" />
         <option value="$PROJECT_DIR$/Wallet/static/Wallet/js/etiqueta-cuenta.js" />
-        <option value="$PROJECT_DIR$/Wallet/templates/editarCuentas.html" />
         <option value="$PROJECT_DIR$/Wallet/static/Wallet/css/example.css" />
         <option value="$PROJECT_DIR$/Wallet/static/Wallet/js/login-register.js" />
         <option value="$PROJECT_DIR$/Wallet/models.py" />
@@ -129,12 +146,15 @@
         <option value="$PROJECT_DIR$/Wallet/templates/tendencias.html" />
         <option value="$PROJECT_DIR$/Wallet/static/Wallet/js/morris.js" />
         <option value="$PROJECT_DIR$/Wallet/templates/base.html" />
-        <option value="$PROJECT_DIR$/WalletApp/urls.py" />
         <option value="$PROJECT_DIR$/Wallet/templates/loggedin.html" />
         <option value="$PROJECT_DIR$/Wallet/templates/cuentas.html" />
-        <option value="$PROJECT_DIR$/Wallet/templates/categoria.html" />
-        <option value="$PROJECT_DIR$/Wallet/views.py" />
         <option value="$PROJECT_DIR$/Wallet/static/Wallet/js/bootstrap-datetimepicker.fiser.js" />
+        <option value="$PROJECT_DIR$/Wallet/templates/editarCuentas.html" />
+        <option value="$PROJECT_DIR$/Wallet/templates/editarCategorias.html" />
+        <option value="$PROJECT_DIR$/Wallet/templates/categoria.html" />
+        <option value="$PROJECT_DIR$/WalletApp/settings.py" />
+        <option value="$PROJECT_DIR$/WalletApp/urls.py" />
+        <option value="$PROJECT_DIR$/Wallet/views.py" />
         <option value="$PROJECT_DIR$/Wallet/templates/baseInterna.html" />
       </list>
     </option>
@@ -263,7 +283,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="/usr/bin/git" />
-    <property name="settings.editor.selected.configurable" value="settings.github" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="recentsLimit" value="5" />
@@ -629,7 +649,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="25" />
+      <option name="time" value="26" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -715,14 +735,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WalletApp/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="54" column="0" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -812,14 +824,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Wallet/templates/editarCuentas.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3712984">
-          <caret line="76" column="48" selection-start-line="76" selection-start-column="48" selection-end-line="76" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Wallet/templates/register_success.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.10250569">
@@ -868,55 +872,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Wallet/templates/editarCategorias.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-19.375">
-          <caret line="31" column="83" selection-start-line="31" selection-start-column="83" selection-end-line="31" selection-end-column="83" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Wallet/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.53418803">
-          <caret line="25" column="16" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#27#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Wallet/templates/cuentas.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.35840708">
           <caret line="56" column="406" selection-start-line="56" selection-start-column="406" selection-end-line="56" selection-end-column="406" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Wallet/templates/loggedin.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5760369">
-          <caret line="60" column="406" selection-start-line="60" selection-start-column="406" selection-end-line="60" selection-end-column="406" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Wallet/templates/categoria.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.4117647">
-          <caret line="108" column="39" selection-start-line="108" selection-start-column="37" selection-end-line="108" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Wallet/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-131.66667">
-          <caret line="434" column="43" selection-start-line="434" selection-start-column="32" selection-end-line="434" selection-end-column="43" />
-          <folding>
-            <element signature="e#0#57#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -996,22 +956,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Wallet/templates/crearApunte.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.294118">
-          <caret line="35" column="26" selection-start-line="35" selection-start-column="25" selection-end-line="35" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WalletApp/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="48" column="79" selection-start-line="48" selection-start-column="48" selection-end-line="48" selection-end-column="79" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Wallet/static/Wallet/js/bootstrap-datetimepicker.fiser.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.51605505">
@@ -1020,13 +964,87 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Wallet/templates/editarCuentas.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7266515">
+          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Wallet/templates/categoria.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-15.791667">
+          <caret line="130" column="36" selection-start-line="130" selection-start-column="36" selection-end-line="130" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Wallet/templates/loggedin.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.60097325">
+          <caret line="105" column="35" selection-start-line="105" selection-start-column="35" selection-end-line="105" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WalletApp/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="37" column="4" selection-start-line="37" selection-start-column="4" selection-end-line="37" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Wallet/templates/crearApunte.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.2742718">
+          <caret line="35" column="26" selection-start-line="35" selection-start-column="25" selection-end-line="35" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Wallet/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5788337">
+          <caret line="25" column="16" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="16" />
+          <folding>
+            <element signature="e#0#27#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Wallet/templates/editarCategorias.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.5">
+          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WalletApp/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-19.481482">
+          <caret line="51" column="69" selection-start-line="51" selection-start-column="69" selection-end-line="51" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Wallet/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.592592">
+          <caret line="492" column="21" selection-start-line="492" selection-start-column="16" selection-end-line="492" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#57#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Wallet/templates/baseInterna.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.74264705">
-          <caret line="240" column="60" selection-start-line="240" selection-start-column="60" selection-end-line="240" selection-end-column="60" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#1;n#fieldset#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.19902913">
+          <caret line="441" column="17" selection-start-line="441" selection-start-column="17" selection-end-line="441" selection-end-column="17" />
+          <folding />
         </state>
       </provider>
     </entry>

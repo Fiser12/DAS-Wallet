@@ -61,7 +61,7 @@
                             {% endfor %}
                             {% for categorias in categoriasGastos %}
                                 {% for apunte in categorias.apuntes %}
-                                    <tr class="apunteidGastos{{ categorias.categoria.id }} hidemeplease clickable-row" data-toggle="modal" data-id="{{ apunte.id }}" descripcion="{{ apunte.descripcion }}" dinero={{ apunte.dinero }} cuentaOrigen="{{ apunte.cuentaOrigen.id }}" cuentaDestino="{{ apunte.cuentaDestino.id }}" fecha="{{ apunte.fecha }}" categoria="{{ apunte.categoria }}" ingresoGastoTransferencia="{{ apunte.ingresoGastoTransferencia }}" data-target="#myModal1">
+                                    <tr class="apunteidGastos{{ categorias.categoria.id }} hidemeplease clickable-row" data-toggle="modal" data-id="{{ apunte.id }}" descripcion="{{ apunte.descripcion }}" dinero={{ apunte.dinero }} cuentaOrigen="{{ apunte.cuentaOrigen.id }}" cuentaDestino="{{ apunte.cuentaDestino.id }}" fecha="{{ apunte.fecha }}" categoria="{{ apunte.categoria.id }}" ingresoGastoTransferencia="{{ apunte.ingresoGastoTransferencia }}" data-target="#myModal1">
                                         <td>{{ apunte.descripcion }}</td>
                                         <td>{{ apunte.dinero }}</td>
                                         {% if apunte.ingresoGastoTransferencia == 3 %}

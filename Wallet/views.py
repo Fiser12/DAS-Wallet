@@ -1,15 +1,15 @@
 from django.contrib.auth.decorators import login_required
-from django.views.generic.edit import UpdateView
 from django.shortcuts import render_to_response
 from rest_framework import viewsets
 from django.core.context_processors import csrf
 from django.contrib import auth
 from django.contrib.auth.forms import UserCreationForm
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from datetime import datetime, date
 from .models import Cuenta, Apunte, Categoria
 from .serializers import CuentaSerializer, ApunteSerializer, CategoriaSerializer, DatosTabla, CategoriaSerializerWithMoreData, ApuntesPorMes
 import time
+import json
 
 ########################
 #######API-REST#########
@@ -346,19 +346,19 @@ def GetTendencias():
                     mesAnterior = apunte.fecha.month
                 else:
                     if apunte.ingresoGastoTransferencia==1:
-                        apunteAnterior = ApuntesPorMes(apunte.fecha.month, {apunte}, 0, apunte.dinero, getMesStr(apunte.fecha.month) +" "+ apunte.fecha.year.__str__())
+                        apunteAnterior = ApuntesPorMes(apunte.fecha.month, {apunte}, 0, apunte.dinero, getMesStr(apunte.fecha.month))
                         apuntesOrdenados.append(apunteAnterior)
                     elif apunte.ingresoGastoTransferencia==2:
-                        apunteAnterior = ApuntesPorMes(apunte.fecha.month, {apunte}, apunte.dinero, 0, getMesStr(apunte.fecha.month) +" "+ apunte.fecha.year.__str__())
+                        apunteAnterior = ApuntesPorMes(apunte.fecha.month, {apunte}, apunte.dinero, 0, getMesStr(apunte.fecha.month))
                         apuntesOrdenados.append(apunteAnterior)
                     mesAnterior = apunte.fecha.month
             else:
                 if apunte.ingresoGastoTransferencia==1:
-                    apunteAnterior = ApuntesPorMes(apunte.fecha.month, {apunte}, 0, apunte.dinero, getMesStr(apunte.fecha.month) +" "+ apunte.fecha.year.__str__())
+                    apunteAnterior = ApuntesPorMes(apunte.fecha.month, {apunte}, 0, apunte.dinero, getMesStr(apunte.fecha.month))
                     apuntesOrdenados.append(apunteAnterior)
 
                 elif apunte.ingresoGastoTransferencia==2:
-                    apunteAnterior = ApuntesPorMes(apunte.fecha.month, {apunte}, apunte.dinero, 0, getMesStr(apunte.fecha.month) +" "+ apunte.fecha.year.__str__())
+                    apunteAnterior = ApuntesPorMes(apunte.fecha.month, {apunte}, apunte.dinero, 0, getMesStr(apunte.fecha.month))
                     apuntesOrdenados.append(apunteAnterior)
                 mesAnterior = apunte.fecha.month
 
@@ -449,6 +449,7 @@ def EditarCategorias(request):
                                'object_list': Cuenta.objects.filter(owner=request.user.id),
                                'categoria_list': Categoria.objects.filter(createdBy=request.user.id),
                                'today': time.strftime("%Y-%m-%d")})
+
 def ViewCreateApunte(request, id):
     descripcion = request.POST.get('descripcion', '')
     dinero = request.POST.get('dinero', '')
@@ -482,3 +483,14 @@ def ViewCreateApunte(request, id):
                                'object_list': Cuenta.objects.filter(owner=request.user.id),
                                'categoria_list': Categoria.objects.filter(createdBy=request.user.id),
                                'today': time.strftime("%Y-%m-%d")})
+def getApuntes(request):
+    if request.is_ajax():
+        data = []
+        q = request.GET.get('term', '')
+        apuntes = Apunte.objects.filter(createdBy2=request.user.id)
+        for apunte in apuntes:
+            if apunte.descripcion.__contains__(q):
+                fechaProcesada= apunte.fecha.__str__()
+                data.append({'id': apunte.id, 'descripcion': apunte.descripcion, 'dinero': apunte.dinero, 'categoria': apunte.categoria.id, 'cuentaOrigen': apunte.cuentaOrigen.id, 'cuentaDestino': apunte.cuentaDestino.id, 'fecha': fechaProcesada})
+        json_response = json.dumps(data)
+        return HttpResponse(json_response, 'application/json')

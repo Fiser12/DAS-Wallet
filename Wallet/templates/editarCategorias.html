@@ -22,7 +22,6 @@
                                             <thead>
                                             <tr>
                                                 <th>Nombre</th>
-                                                <th>Editar</th>
                                                 <th>Borrar</th>
                                             </tr>
                                             </thead>
@@ -30,10 +29,6 @@
                                             {% for categoria in categoria_list %}
                                                 <tr>
                                                     <td>{{ categoria.titulo }}</td>
-                                                    <td>
-                                                        <button type="button" class="btn btn-sm btn-default">Editar
-                                                        </button>
-                                                    </td>
                                                     <td>
                                                         <form style="display: inline"
                                                               action="/categoria/delete/{{ categoria.id }}"

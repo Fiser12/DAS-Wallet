@@ -23,7 +23,6 @@
                                             <tr>
                                                 <th>Nombre de la cuenta</th>
                                                 <th>Saldo inicial</th>
-                                                <th>Editar</th>
                                                 <th>Borrar</th>
                                             </tr>
                                             </thead>
@@ -32,10 +31,6 @@
                                                 <tr>
                                                     <td id="edit">{{ cuenta.nombre }}</td>
                                                     <td id="edit">{{ cuenta.saldoInicial }}</td>
-                                                    <td>
-                                                        <button type="button" class="btn btn-sm btn-default">Editar
-                                                        </button>
-                                                    </td>
                                                     <td>
                                                         <form style="display: inline"
                                                               action="/cuenta/delete/{{ cuenta.id }}" method="get">

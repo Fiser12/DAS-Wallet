@@ -43,11 +43,11 @@ urlpatterns = patterns('',
                        url(r'^reportes/categorias', 'Wallet.views.GetCategorias'),
                        url(r'^cuenta/(?P<id>\d+)/$', 'Wallet.views.CuentaPanel'),
                        url(r'^cuenta/editar/', 'Wallet.views.EditarCuentas'),
-                       url(r'^categoria/editar/', 'Wallet.views.EditarCategorias'),
                        url(r'^cuenta/delete/(?P<id>\d+)/$', 'Wallet.views.CuentaDelete'),
+                       url(r'^categoria/editar/', 'Wallet.views.EditarCategorias'),
                        url(r'^categoria/delete/(?P<id>\d+)/$', 'Wallet.views.CategoriaDelete'),
                        url(r'^apunte/create/$', 'Wallet.views.ViewCreateApunte'),
                        url(r'^apunte/delete/(?P<id>\d+)/$', 'Wallet.views.ApunteDelete'),
                        url(r'^apunte/editar/(?P<id>\d+)/$', 'Wallet.views.ApunteUpdate'),
-
+                       url(r'^apunte/buscar/', 'Wallet.views.getApuntes'),
                        )
