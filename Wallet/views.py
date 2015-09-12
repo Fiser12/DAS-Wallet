@@ -91,7 +91,7 @@ def loggedin(request):
                               {'full_name': request.user.username,
                                'object_list': model,
                                'categoria_list': Categoria.objects.filter(createdBy=request.user.id),
-                               'apuntes_list': apuntes,
+                               'apunte_list': Apunte.objects.all().filter(createdBy2=request.user.id).order_by('-fecha'),
                                'dinero': dinero,
                                'arrayDatos': arrayFinal,
                                'apuntesOrdenados': GetTendencias()})
@@ -434,7 +434,8 @@ def GetCategorias(request):
                                'categoria_list': Categoria.objects.filter(createdBy=request.user.id),
                                'today': time.strftime("%Y-%m-%d"),
                                'categoriasIngresos': categoriasIngresos,
-                               'categoriasGastos': categoriasGastos})
+                               'categoriasGastos': categoriasGastos,
+                               'apunte_list': Apunte.objects.all().filter(createdBy2=request.user.id).order_by('-fecha')})
 
 @login_required()
 def EditarCuentas(request):

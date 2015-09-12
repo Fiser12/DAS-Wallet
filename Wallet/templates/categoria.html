@@ -40,13 +40,12 @@
                                 <th>Cuenta</th>
                                 <th>Fecha</th>
                                 <th>Categorias</th>
-                                <th>Borrar</th>
                             </tr>
                             </thead>
                             <tbody>
                             {% for categorias in categoriasIngresos %}
                                 {% for apunte in categorias.apuntes %}
-                                    <tr class="apunteidIngresos{{ categorias.categoria.id }} hidemeplease" hidden>
+                                    <tr class="apunteidIngresos{{ categorias.categoria.id }} hidemeplease" data-toggle="modal" data-id="1" data-target="#myModal1" hidden>
                                         <td>{{ apunte.descripcion }}</td>
                                         <td>{{ apunte.dinero }}</td>
                                         {% if apunte.ingresoGastoTransferencia == 3 %}
@@ -57,19 +56,12 @@
                                         {% endif %}
                                         <td>{{ apunte.fecha }}</td>
                                         <td>{{ apunte.categoria.titulo }}</td>
-
-                                        <td>
-                                            <form style="display: inline" action="/apunte/delete/{{ apunte.id }}"
-                                                  method="get">
-                                                <button class="btn btn-sm btn-danger">Borrar</button>
-                                            </form>
-                                        </td>
                                     </tr>
                                 {% endfor %}
                             {% endfor %}
                             {% for categorias in categoriasGastos %}
                                 {% for apunte in categorias.apuntes %}
-                                    <tr class="apunteidGastos{{ categorias.categoria.id }} hidemeplease">
+                                    <tr class="apunteidGastos{{ categorias.categoria.id }} hidemeplease clickable-row" data-toggle="modal" data-id="{{ apunte.id }}" data-target="#myModal1">
                                         <td>{{ apunte.descripcion }}</td>
                                         <td>{{ apunte.dinero }}</td>
                                         {% if apunte.ingresoGastoTransferencia == 3 %}
@@ -80,13 +72,6 @@
                                         {% endif %}
                                         <td>{{ apunte.fecha }}</td>
                                         <td>{{ apunte.categoria.titulo }}</td>
-
-                                        <td>
-                                            <form style="display: inline" action="/apunte/delete/{{ apunte.id }}"
-                                                  method="get">
-                                                <button class="btn btn-sm btn-danger">Borrar</button>
-                                            </form>
-                                        </td>
                                     </tr>
                                 {% endfor %}
 
@@ -146,7 +131,6 @@
             return formatDate(date);
         }
         donut.xLabelAngle = 60;
-
         $(".checkboxControl").change(function () {
             if (document.getElementById('ingresosCategoria').checked) {
                 donut.setData(data2);

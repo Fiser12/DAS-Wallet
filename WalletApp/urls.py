@@ -48,5 +48,6 @@ urlpatterns = patterns('',
                        url(r'^categoria/delete/(?P<id>\d+)/$', 'Wallet.views.CategoriaDelete'),
                        url(r'^apunte/create/$', 'Wallet.views.ViewCreateApunte'),
                        url(r'^apunte/delete/(?P<id>\d+)/$', 'Wallet.views.ApunteDelete'),
+                       url(r'^apunte/editar/(?P<id>\d+)/$', 'Wallet.views.ApunteUpdate'),
 
                        )

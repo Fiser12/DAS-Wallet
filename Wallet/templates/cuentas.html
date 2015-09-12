@@ -1,10 +1,7 @@
 {% extends "baseInterna.html" %}
 {% block content %}
     <div id="page-wrapper">
-
         <div class="container-fluid">
-
-            <!-- Page Heading -->
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">
@@ -33,9 +30,8 @@
                 </div>
                 <div class="row">
                     <div class="col-sm-12">
-                    <div id="graph"></div>
-                </div>
-
+                        <div id="graph"></div>
+                    </div>
                 </div>
                 <div class="row">
 
@@ -49,17 +45,16 @@
                                     <th>Cuenta Destino</th>
                                     <th>Fecha</th>
                                     <th>Categoría</th>
-                                    <th>Borrar</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 {% for apunte in apunte_list %}
                                     {% if apunte.ingresoGastoTransferencia == 3 %}
-                                        <tr class="warning">
+                                        <tr class="warning clickable-row" data-toggle="modal" data-id="{{ apunte.id }}" data-target="#myModal1">
                                             {% elif apunte.ingresoGastoTransferencia == 1 %}
-                                        <tr class="success">
+                                        <tr class="success clickable-row" data-toggle="modal" data-id="{{ apunte.id }}" data-target="#myModal1">
                                             {% elif apunte.ingresoGastoTransferencia == 2 %}
-                                        <tr class="danger">
+                                        <tr class="danger clickable-row" data-toggle="modal" data-id="{{ apunte.id }}" data-target="#myModal1">
                                     {% endif %}
                                 <td>{{ apunte.descripcion }}</td>
                                 <td>{{ apunte.dinero }}</td>
@@ -70,11 +65,6 @@
                                 {% endif %}
                                 <td>{{ apunte.fecha }}</td>
                                 <td>{{ apunte.categoria.titulo }}</td>
-                                <td>
-                                    <form style="display: inline" action="/apunte/delete/{{ apunte.id }}" method="get">
-                                        <button class="btn btn-sm btn-danger">Borrar</button>
-                                    </form>
-                                </td>
                                 </tr>
                                 {% endfor %}
                                 </tbody>
@@ -82,29 +72,27 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- /.row -->
             </div>
-            </div>
-            <!-- /.container-fluid -->
         </div>
+    </div>
     <script>
         var day_data = [
             {% for datos in arrayDatos %}
                 {"period": '{{ datos.fecha }}', "{{ cuenta.nombre }}": {{datos.dinero}}},
             {% endfor %}
-];
-Morris.Line({
-  element: 'graph',
-  data: day_data,
-  xkey: 'period',
-  ykeys: ['{{ cuenta.nombre }}'],
-  labels: ['{{ cuenta.nombre }}'],
-  /* custom label formatting with `xLabelFormat` */
-  xLabelFormat: function(d) { return (d.getMonth()+1)+'/'+d.getDate()+'/'+d.getFullYear(); },
-  /* setting `xLabels` is recommended when using xLabelFormat */
-  xLabels: 'day'
-});
+        ];
+        Morris.Line({
+            element: 'graph',
+            data: day_data,
+            xkey: 'period',
+            ykeys: ['{{ cuenta.nombre }}'],
+            labels: ['{{ cuenta.nombre }}'],
+            /* custom label formatting with `xLabelFormat` */
+            xLabelFormat: function (d) {
+                return (d.getMonth() + 1) + '/' + d.getDate() + '/' + d.getFullYear();
+            },
+            /* setting `xLabels` is recommended when using xLabelFormat */
+            xLabels: 'day'
+        });
     </script>
-
 {% endblock %}
