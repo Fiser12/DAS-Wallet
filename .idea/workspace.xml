@@ -2,7 +2,71 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b49d8f3a-0a4a-42d1-ab49-975ddc07dbdf" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WalletApp/settings.py" afterPath="$PROJECT_DIR$/WalletApp/settings.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/WalletApp/static/WalletApp/css/bootstrap-datetimepicker.min.css" afterPath="$PROJECT_DIR$/WalletApp/static/css/bootstrap-datetimepicker.min.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/WalletApp/static/WalletApp/css/bootstrap-rtl.css" afterPath="$PROJECT_DIR$/WalletApp/static/css/bootstrap-rtl.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/WalletApp/static/WalletApp/css/bootstrap-rtl.min.css" afterPath="$PROJECT_DIR$/WalletApp/static/css/bootstrap-rtl.min.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/WalletApp/static/WalletApp/css/bootstrap-theme.css" afterPath="$PROJECT_DIR$/WalletApp/static/css/bootstrap-theme.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/WalletApp/static/WalletApp/css/bootstrap-theme.css.map" afterPath="$PROJECT_DIR$/WalletApp/static/css/bootstrap-theme.css.map" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/WalletApp/static/WalletApp/css/bootstrap-theme.min.css" afterPath="$PROJECT_DIR$/WalletApp/static/css/bootstrap-theme.min.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/WalletApp/static/WalletApp/css/bootstrap.css" afterPath="$PROJECT_DIR$/WalletApp/static/css/bootstrap.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/WalletApp/static/WalletApp/css/bootstrap.css.map" afterPath="$PROJECT_DIR$/WalletApp/static/css/bootstrap.css.map" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/WalletApp/static/WalletApp/css/bootstrap.min.css" afterPath="$PROJECT_DIR$/WalletApp/static/css/bootstrap.min.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/WalletApp/static/WalletApp/css/example.css" afterPath="$PROJECT_DIR$/WalletApp/static/css/example.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/WalletApp/static/WalletApp/css/login-register.css" afterPath="$PROJECT_DIR$/WalletApp/static/css/login-register.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/WalletApp/static/WalletApp/css/morris.css" afterPath="$PROJECT_DIR$/WalletApp/static/css/morris.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/WalletApp/static/WalletApp/css/sb-admin-rtl.css" afterPath="$PROJECT_DIR$/WalletApp/static/css/sb-admin-rtl.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/WalletApp/static/WalletApp/css/sb-admin.css" afterPath="$PROJECT_DIR$/WalletApp/static/css/sb-admin.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/WalletApp/static/WalletApp/font-awesome/css/font-awesome.css" afterPath="$PROJECT_DIR$/WalletApp/static/font-awesome/css/font-awesome.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/WalletApp/static/WalletApp/font-awesome/css/font-awesome.min.css" afterPath="$PROJECT_DIR$/WalletApp/static/font-awesome/css/font-awesome.min.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/WalletApp/static/WalletApp/font-awesome/fonts/FontAwesome.otf" afterPath="$PROJECT_DIR$/WalletApp/static/font-awesome/fonts/FontAwesome.otf" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/WalletApp/static/WalletApp/font-awesome/fonts/fontawesome-webfont.eot" afterPath="$PROJECT_DIR$/WalletApp/static/font-awesome/fonts/fontawesome-webfont.eot" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/WalletApp/static/WalletApp/font-awesome/fonts/fontawesome-webfont.svg" afterPath="$PROJECT_DIR$/WalletApp/static/font-awesome/fonts/fontawesome-webfont.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/WalletApp/static/WalletApp/font-awesome/fonts/fontawesome-webfont.ttf" afterPath="$PROJECT_DIR$/WalletApp/static/font-awesome/fonts/fontawesome-webfont.ttf" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/WalletApp/static/WalletApp/font-awesome/fonts/fontawesome-webfont.woff" afterPath="$PROJECT_DIR$/WalletApp/static/font-awesome/fonts/fontawesome-webfont.woff" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/WalletApp/static/WalletApp/font-awesome/less/bordered-pulled.less" afterPath="$PROJECT_DIR$/WalletApp/static/font-awesome/less/bordered-pulled.less" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/WalletApp/static/WalletApp/font-awesome/less/core.less" afterPath="$PROJECT_DIR$/WalletApp/static/font-awesome/less/core.less" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/WalletApp/static/WalletApp/font-awesome/less/fixed-width.less" afterPath="$PROJECT_DIR$/WalletApp/static/font-awesome/less/fixed-width.less" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/WalletApp/static/WalletApp/font-awesome/less/font-awesome.less" afterPath="$PROJECT_DIR$/WalletApp/static/font-awesome/less/font-awesome.less" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/WalletApp/static/WalletApp/font-awesome/less/icons.less" afterPath="$PROJECT_DIR$/WalletApp/static/font-awesome/less/icons.less" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/WalletApp/static/WalletApp/font-awesome/less/larger.less" afterPath="$PROJECT_DIR$/WalletApp/static/font-awesome/less/larger.less" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/WalletApp/static/WalletApp/font-awesome/less/list.less" afterPath="$PROJECT_DIR$/WalletApp/static/font-awesome/less/list.less" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/WalletApp/static/WalletApp/font-awesome/less/mixins.less" afterPath="$PROJECT_DIR$/WalletApp/static/font-awesome/less/mixins.less" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/WalletApp/static/WalletApp/font-awesome/less/path.less" afterPath="$PROJECT_DIR$/WalletApp/static/font-awesome/less/path.less" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/WalletApp/static/WalletApp/font-awesome/less/rotated-flipped.less" afterPath="$PROJECT_DIR$/WalletApp/static/font-awesome/less/rotated-flipped.less" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/WalletApp/static/WalletApp/font-awesome/less/spinning.less" afterPath="$PROJECT_DIR$/WalletApp/static/font-awesome/less/spinning.less" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/WalletApp/static/WalletApp/font-awesome/less/stacked.less" afterPath="$PROJECT_DIR$/WalletApp/static/font-awesome/less/stacked.less" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/WalletApp/static/WalletApp/font-awesome/less/variables.less" afterPath="$PROJECT_DIR$/WalletApp/static/font-awesome/less/variables.less" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/WalletApp/static/WalletApp/font-awesome/scss/_bordered-pulled.scss" afterPath="$PROJECT_DIR$/WalletApp/static/font-awesome/scss/_bordered-pulled.scss" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/WalletApp/static/WalletApp/font-awesome/scss/_core.scss" afterPath="$PROJECT_DIR$/WalletApp/static/font-awesome/scss/_core.scss" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/WalletApp/static/WalletApp/font-awesome/scss/_fixed-width.scss" afterPath="$PROJECT_DIR$/WalletApp/static/font-awesome/scss/_fixed-width.scss" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/WalletApp/static/WalletApp/font-awesome/scss/_icons.scss" afterPath="$PROJECT_DIR$/WalletApp/static/font-awesome/scss/_icons.scss" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/WalletApp/static/WalletApp/font-awesome/scss/_larger.scss" afterPath="$PROJECT_DIR$/WalletApp/static/font-awesome/scss/_larger.scss" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/WalletApp/static/WalletApp/font-awesome/scss/_list.scss" afterPath="$PROJECT_DIR$/WalletApp/static/font-awesome/scss/_list.scss" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/WalletApp/static/WalletApp/font-awesome/scss/_mixins.scss" afterPath="$PROJECT_DIR$/WalletApp/static/font-awesome/scss/_mixins.scss" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/WalletApp/static/WalletApp/font-awesome/scss/_path.scss" afterPath="$PROJECT_DIR$/WalletApp/static/font-awesome/scss/_path.scss" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/WalletApp/static/WalletApp/font-awesome/scss/_rotated-flipped.scss" afterPath="$PROJECT_DIR$/WalletApp/static/font-awesome/scss/_rotated-flipped.scss" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/WalletApp/static/WalletApp/font-awesome/scss/_spinning.scss" afterPath="$PROJECT_DIR$/WalletApp/static/font-awesome/scss/_spinning.scss" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/WalletApp/static/WalletApp/font-awesome/scss/_stacked.scss" afterPath="$PROJECT_DIR$/WalletApp/static/font-awesome/scss/_stacked.scss" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/WalletApp/static/WalletApp/font-awesome/scss/_variables.scss" afterPath="$PROJECT_DIR$/WalletApp/static/font-awesome/scss/_variables.scss" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/WalletApp/static/WalletApp/font-awesome/scss/font-awesome.scss" afterPath="$PROJECT_DIR$/WalletApp/static/font-awesome/scss/font-awesome.scss" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/WalletApp/static/WalletApp/fonts/glyphicons-halflings-regular.eot" afterPath="$PROJECT_DIR$/WalletApp/static/fonts/glyphicons-halflings-regular.eot" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/WalletApp/static/WalletApp/fonts/glyphicons-halflings-regular.svg" afterPath="$PROJECT_DIR$/WalletApp/static/fonts/glyphicons-halflings-regular.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/WalletApp/static/WalletApp/fonts/glyphicons-halflings-regular.ttf" afterPath="$PROJECT_DIR$/WalletApp/static/fonts/glyphicons-halflings-regular.ttf" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/WalletApp/static/WalletApp/fonts/glyphicons-halflings-regular.woff" afterPath="$PROJECT_DIR$/WalletApp/static/fonts/glyphicons-halflings-regular.woff" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/WalletApp/static/WalletApp/fonts/glyphicons-halflings-regular.woff2" afterPath="$PROJECT_DIR$/WalletApp/static/fonts/glyphicons-halflings-regular.woff2" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/WalletApp/static/WalletApp/js/Gruntfile.js" afterPath="$PROJECT_DIR$/WalletApp/static/js/Gruntfile.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/WalletApp/static/WalletApp/js/bootstrap-datetimepicker.fiser.js" afterPath="$PROJECT_DIR$/WalletApp/static/js/bootstrap-datetimepicker.fiser.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/WalletApp/static/WalletApp/js/bootstrap.js" afterPath="$PROJECT_DIR$/WalletApp/static/js/bootstrap.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/WalletApp/static/WalletApp/js/bootstrap.min.js" afterPath="$PROJECT_DIR$/WalletApp/static/js/bootstrap.min.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/WalletApp/static/WalletApp/js/etiqueta-cuenta.js" afterPath="$PROJECT_DIR$/WalletApp/static/js/etiqueta-cuenta.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/WalletApp/static/WalletApp/js/example.js" afterPath="$PROJECT_DIR$/WalletApp/static/js/example.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/WalletApp/static/WalletApp/js/jquery-1.10.2.js" afterPath="$PROJECT_DIR$/WalletApp/static/js/jquery-1.10.2.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/WalletApp/static/WalletApp/js/jquery-ui.custom.min.js" afterPath="$PROJECT_DIR$/WalletApp/static/js/jquery-ui.custom.min.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/WalletApp/static/WalletApp/js/jquery.js" afterPath="$PROJECT_DIR$/WalletApp/static/js/jquery.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/WalletApp/static/WalletApp/js/login-register.js" afterPath="$PROJECT_DIR$/WalletApp/static/js/login-register.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/WalletApp/static/WalletApp/js/morris.js" afterPath="$PROJECT_DIR$/WalletApp/static/js/morris.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/WalletApp/static/WalletApp/js/morris.min.js" afterPath="$PROJECT_DIR$/WalletApp/static/js/morris.min.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/WalletApp/static/WalletApp/js/npm.js" afterPath="$PROJECT_DIR$/WalletApp/static/js/npm.js" />
     </list>
     <ignored path="WalletApp.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -49,14 +113,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WalletApp/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.82222223">
-              <caret line="119" column="24" selection-start-line="119" selection-start-column="24" selection-end-line="119" selection-end-column="24" />
+            <state vertical-scroll-proportion="-21.666666">
+              <caret line="121" column="31" selection-start-line="121" selection-start-column="31" selection-end-line="121" selection-end-column="31" />
               <folding>
                 <element signature="e#382#431#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="npm.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/WalletApp/static/js/npm.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -270,10 +344,6 @@
               <option name="myItemId" value="static" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WalletApp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -313,11 +383,11 @@
       <recent name="$PROJECT_DIR$/Wallet/templates/Wallet" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/WalletApp/static" />
       <recent name="$PROJECT_DIR$/WalletApp" />
       <recent name="$PROJECT_DIR$/Wallet/static/Wallet" />
       <recent name="$PROJECT_DIR$/Wallet/static" />
       <recent name="$PROJECT_DIR$/Wallet" />
-      <recent name="$PROJECT_DIR$/WalletApp/static/Wallet" />
     </key>
   </component>
   <component name="RunManager" selected="Django server.WalletApp">
@@ -597,9 +667,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2714055" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2714055" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32739726" sideWeight="0.51615506" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -913,11 +983,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/WalletApp/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.82222223">
-          <caret line="119" column="24" selection-start-line="119" selection-start-column="24" selection-end-line="119" selection-end-column="24" />
+        <state vertical-scroll-proportion="-21.666666">
+          <caret line="121" column="31" selection-start-line="121" selection-start-column="31" selection-end-line="121" selection-end-column="31" />
           <folding>
             <element signature="e#382#431#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WalletApp/static/js/npm.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
