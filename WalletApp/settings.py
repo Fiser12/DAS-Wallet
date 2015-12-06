@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+import dj_database_url
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
@@ -47,7 +49,6 @@ INSTALLED_APPS = (
     'Wallet',
     'rest_framework',
     'gunicorn',
-
 )
 
 MIDDLEWARE_CLASSES = (
@@ -81,18 +82,18 @@ WSGI_APPLICATION = 'WalletApp.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'NAME': 'Wallet',
-        'ENGINE': 'django.db.backends.mysql',
-        'USER': 'root',
-        'PASSWORD': '',
-        'OPTIONS': {
-            'autocommit': True,
-        },
-    }
-}
+DATABASES['default'] = dj_database_url.config()
+#DATABASES = {
+#    'default': {
+#        'NAME': 'Wallet',
+#        'ENGINE': 'django.db.backends.mysql',
+#        'USER': 'root',
+#        'PASSWORD': '',
+#        'OPTIONS': {
+#            'autocommit': True,
+#        },
+#    }
+#}
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
 
@@ -113,3 +114,4 @@ STATIC_URL = '/static/'
 TEMPLATE_DIRS = (
     os.path.join(BASE_DIR, 'templates'),
 )
+STATICFILES_DIRS = ( os.path.join(BASE_DIR, 'static'), )
