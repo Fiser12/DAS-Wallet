@@ -1,21 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b49d8f3a-0a4a-42d1-ab49-975ddc07dbdf" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/blank-page.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/bootstrap-elements.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/bootstrap-grid.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/charts.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/forms.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/index-rtl.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/login-register.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/login-register.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/login_register_modal.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/tables.html" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WalletApp/wsgi.py" afterPath="$PROJECT_DIR$/WalletApp/wsgi.py" />
-    </list>
+    <list default="true" id="b49d8f3a-0a4a-42d1-ab49-975ddc07dbdf" name="Default" comment="" />
     <ignored path="WalletApp.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />

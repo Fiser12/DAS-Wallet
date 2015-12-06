@@ -1,1 +1,1 @@
-web: gunicorn WalletApp.wsgi -b 0.0.0.0:$PORT
+web: gunicorn Wallet.wsgi -b 0.0.0.0:$PORT
