@@ -86,7 +86,7 @@ WSGI_APPLICATION = 'WalletApp.wsgi.application'
 DATABASES['default'] = dj_database_url.config()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
-#DATABASES = {
+# DATABASES = {
 #    'default': {
 #        'NAME': 'Wallet',
 #        'ENGINE': 'django.db.backends.mysql',
@@ -96,7 +96,7 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 #            'autocommit': True,
 #        },
 #    }
-#}
+# }
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
 
