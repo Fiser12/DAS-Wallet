@@ -2,7 +2,81 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b49d8f3a-0a4a-42d1-ab49-975ddc07dbdf" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WalletApp/settings.py" afterPath="$PROJECT_DIR$/WalletApp/settings.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/static/Wallet/css/bootstrap-datetimepicker.min.css" afterPath="$PROJECT_DIR$/WalletApp/static/Wallet/css/bootstrap-datetimepicker.min.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/static/Wallet/css/bootstrap-rtl.css" afterPath="$PROJECT_DIR$/WalletApp/static/Wallet/css/bootstrap-rtl.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/static/Wallet/css/bootstrap-rtl.min.css" afterPath="$PROJECT_DIR$/WalletApp/static/Wallet/css/bootstrap-rtl.min.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/static/Wallet/css/bootstrap-theme.css" afterPath="$PROJECT_DIR$/WalletApp/static/Wallet/css/bootstrap-theme.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/static/Wallet/css/bootstrap-theme.css.map" afterPath="$PROJECT_DIR$/WalletApp/static/Wallet/css/bootstrap-theme.css.map" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/static/Wallet/css/bootstrap-theme.min.css" afterPath="$PROJECT_DIR$/WalletApp/static/Wallet/css/bootstrap-theme.min.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/static/Wallet/css/bootstrap.css" afterPath="$PROJECT_DIR$/WalletApp/static/Wallet/css/bootstrap.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/static/Wallet/css/bootstrap.css.map" afterPath="$PROJECT_DIR$/WalletApp/static/Wallet/css/bootstrap.css.map" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/static/Wallet/css/bootstrap.min.css" afterPath="$PROJECT_DIR$/WalletApp/static/Wallet/css/bootstrap.min.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/static/Wallet/css/example.css" afterPath="$PROJECT_DIR$/WalletApp/static/Wallet/css/example.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/static/Wallet/css/login-register.css" afterPath="$PROJECT_DIR$/WalletApp/static/Wallet/css/login-register.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/static/Wallet/css/morris.css" afterPath="$PROJECT_DIR$/WalletApp/static/Wallet/css/morris.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/static/Wallet/css/sb-admin-rtl.css" afterPath="$PROJECT_DIR$/WalletApp/static/Wallet/css/sb-admin-rtl.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/static/Wallet/css/sb-admin.css" afterPath="$PROJECT_DIR$/WalletApp/static/Wallet/css/sb-admin.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/static/Wallet/font-awesome/css/font-awesome.css" afterPath="$PROJECT_DIR$/WalletApp/static/Wallet/font-awesome/css/font-awesome.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/static/Wallet/font-awesome/css/font-awesome.min.css" afterPath="$PROJECT_DIR$/WalletApp/static/Wallet/font-awesome/css/font-awesome.min.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/static/Wallet/font-awesome/fonts/FontAwesome.otf" afterPath="$PROJECT_DIR$/WalletApp/static/Wallet/font-awesome/fonts/FontAwesome.otf" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/static/Wallet/font-awesome/fonts/fontawesome-webfont.eot" afterPath="$PROJECT_DIR$/WalletApp/static/Wallet/font-awesome/fonts/fontawesome-webfont.eot" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/static/Wallet/font-awesome/fonts/fontawesome-webfont.svg" afterPath="$PROJECT_DIR$/WalletApp/static/Wallet/font-awesome/fonts/fontawesome-webfont.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/static/Wallet/font-awesome/fonts/fontawesome-webfont.ttf" afterPath="$PROJECT_DIR$/WalletApp/static/Wallet/font-awesome/fonts/fontawesome-webfont.ttf" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/static/Wallet/font-awesome/fonts/fontawesome-webfont.woff" afterPath="$PROJECT_DIR$/WalletApp/static/Wallet/font-awesome/fonts/fontawesome-webfont.woff" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/static/Wallet/font-awesome/less/bordered-pulled.less" afterPath="$PROJECT_DIR$/WalletApp/static/Wallet/font-awesome/less/bordered-pulled.less" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/static/Wallet/font-awesome/less/core.less" afterPath="$PROJECT_DIR$/WalletApp/static/Wallet/font-awesome/less/core.less" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/static/Wallet/font-awesome/less/fixed-width.less" afterPath="$PROJECT_DIR$/WalletApp/static/Wallet/font-awesome/less/fixed-width.less" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/static/Wallet/font-awesome/less/font-awesome.less" afterPath="$PROJECT_DIR$/WalletApp/static/Wallet/font-awesome/less/font-awesome.less" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/static/Wallet/font-awesome/less/icons.less" afterPath="$PROJECT_DIR$/WalletApp/static/Wallet/font-awesome/less/icons.less" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/static/Wallet/font-awesome/less/larger.less" afterPath="$PROJECT_DIR$/WalletApp/static/Wallet/font-awesome/less/larger.less" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/static/Wallet/font-awesome/less/list.less" afterPath="$PROJECT_DIR$/WalletApp/static/Wallet/font-awesome/less/list.less" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/static/Wallet/font-awesome/less/mixins.less" afterPath="$PROJECT_DIR$/WalletApp/static/Wallet/font-awesome/less/mixins.less" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/static/Wallet/font-awesome/less/path.less" afterPath="$PROJECT_DIR$/WalletApp/static/Wallet/font-awesome/less/path.less" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/static/Wallet/font-awesome/less/rotated-flipped.less" afterPath="$PROJECT_DIR$/WalletApp/static/Wallet/font-awesome/less/rotated-flipped.less" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/static/Wallet/font-awesome/less/spinning.less" afterPath="$PROJECT_DIR$/WalletApp/static/Wallet/font-awesome/less/spinning.less" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/static/Wallet/font-awesome/less/stacked.less" afterPath="$PROJECT_DIR$/WalletApp/static/Wallet/font-awesome/less/stacked.less" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/static/Wallet/font-awesome/less/variables.less" afterPath="$PROJECT_DIR$/WalletApp/static/Wallet/font-awesome/less/variables.less" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/static/Wallet/font-awesome/scss/_bordered-pulled.scss" afterPath="$PROJECT_DIR$/WalletApp/static/Wallet/font-awesome/scss/_bordered-pulled.scss" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/static/Wallet/font-awesome/scss/_core.scss" afterPath="$PROJECT_DIR$/WalletApp/static/Wallet/font-awesome/scss/_core.scss" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/static/Wallet/font-awesome/scss/_fixed-width.scss" afterPath="$PROJECT_DIR$/WalletApp/static/Wallet/font-awesome/scss/_fixed-width.scss" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/static/Wallet/font-awesome/scss/_icons.scss" afterPath="$PROJECT_DIR$/WalletApp/static/Wallet/font-awesome/scss/_icons.scss" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/static/Wallet/font-awesome/scss/_larger.scss" afterPath="$PROJECT_DIR$/WalletApp/static/Wallet/font-awesome/scss/_larger.scss" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/static/Wallet/font-awesome/scss/_list.scss" afterPath="$PROJECT_DIR$/WalletApp/static/Wallet/font-awesome/scss/_list.scss" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/static/Wallet/font-awesome/scss/_mixins.scss" afterPath="$PROJECT_DIR$/WalletApp/static/Wallet/font-awesome/scss/_mixins.scss" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/static/Wallet/font-awesome/scss/_path.scss" afterPath="$PROJECT_DIR$/WalletApp/static/Wallet/font-awesome/scss/_path.scss" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/static/Wallet/font-awesome/scss/_rotated-flipped.scss" afterPath="$PROJECT_DIR$/WalletApp/static/Wallet/font-awesome/scss/_rotated-flipped.scss" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/static/Wallet/font-awesome/scss/_spinning.scss" afterPath="$PROJECT_DIR$/WalletApp/static/Wallet/font-awesome/scss/_spinning.scss" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/static/Wallet/font-awesome/scss/_stacked.scss" afterPath="$PROJECT_DIR$/WalletApp/static/Wallet/font-awesome/scss/_stacked.scss" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/static/Wallet/font-awesome/scss/_variables.scss" afterPath="$PROJECT_DIR$/WalletApp/static/Wallet/font-awesome/scss/_variables.scss" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/static/Wallet/font-awesome/scss/font-awesome.scss" afterPath="$PROJECT_DIR$/WalletApp/static/Wallet/font-awesome/scss/font-awesome.scss" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/static/Wallet/fonts/glyphicons-halflings-regular.eot" afterPath="$PROJECT_DIR$/WalletApp/static/Wallet/fonts/glyphicons-halflings-regular.eot" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/static/Wallet/fonts/glyphicons-halflings-regular.svg" afterPath="$PROJECT_DIR$/WalletApp/static/Wallet/fonts/glyphicons-halflings-regular.svg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/static/Wallet/fonts/glyphicons-halflings-regular.ttf" afterPath="$PROJECT_DIR$/WalletApp/static/Wallet/fonts/glyphicons-halflings-regular.ttf" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/static/Wallet/fonts/glyphicons-halflings-regular.woff" afterPath="$PROJECT_DIR$/WalletApp/static/Wallet/fonts/glyphicons-halflings-regular.woff" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/static/Wallet/fonts/glyphicons-halflings-regular.woff2" afterPath="$PROJECT_DIR$/WalletApp/static/Wallet/fonts/glyphicons-halflings-regular.woff2" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/static/Wallet/js/Gruntfile.js" afterPath="$PROJECT_DIR$/WalletApp/static/Wallet/js/Gruntfile.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/static/Wallet/js/bootstrap-datetimepicker.fiser.js" afterPath="$PROJECT_DIR$/WalletApp/static/Wallet/js/bootstrap-datetimepicker.fiser.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/static/Wallet/js/bootstrap.js" afterPath="$PROJECT_DIR$/WalletApp/static/Wallet/js/bootstrap.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/static/Wallet/js/bootstrap.min.js" afterPath="$PROJECT_DIR$/WalletApp/static/Wallet/js/bootstrap.min.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/static/Wallet/js/etiqueta-cuenta.js" afterPath="$PROJECT_DIR$/WalletApp/static/Wallet/js/etiqueta-cuenta.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/static/Wallet/js/example.js" afterPath="$PROJECT_DIR$/WalletApp/static/Wallet/js/example.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/static/Wallet/js/jquery-1.10.2.js" afterPath="$PROJECT_DIR$/WalletApp/static/Wallet/js/jquery-1.10.2.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/static/Wallet/js/jquery-ui.custom.min.js" afterPath="$PROJECT_DIR$/WalletApp/static/Wallet/js/jquery-ui.custom.min.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/static/Wallet/js/jquery.js" afterPath="$PROJECT_DIR$/WalletApp/static/Wallet/js/jquery.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/static/Wallet/js/login-register.js" afterPath="$PROJECT_DIR$/WalletApp/static/Wallet/js/login-register.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/static/Wallet/js/morris.js" afterPath="$PROJECT_DIR$/WalletApp/static/Wallet/js/morris.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/static/Wallet/js/morris.min.js" afterPath="$PROJECT_DIR$/WalletApp/static/Wallet/js/morris.min.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/static/Wallet/js/npm.js" afterPath="$PROJECT_DIR$/WalletApp/static/Wallet/js/npm.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/blank-page.html" afterPath="$PROJECT_DIR$/templates/blank-page.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/bootstrap-elements.html" afterPath="$PROJECT_DIR$/templates/bootstrap-elements.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/bootstrap-grid.html" afterPath="$PROJECT_DIR$/templates/bootstrap-grid.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/charts.html" afterPath="$PROJECT_DIR$/templates/charts.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/forms.html" afterPath="$PROJECT_DIR$/templates/forms.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/index-rtl.html" afterPath="$PROJECT_DIR$/templates/index-rtl.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/index.html" afterPath="$PROJECT_DIR$/templates/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/login_register_modal.html" afterPath="$PROJECT_DIR$/templates/login_register_modal.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/tables.html" afterPath="$PROJECT_DIR$/templates/tables.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="WalletApp.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -49,10 +123,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WalletApp/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7586207">
+            <state vertical-scroll-proportion="-12.222222">
               <caret line="87" column="0" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
               <folding>
                 <element signature="e#382#431#0" expanded="true" />
@@ -61,8 +135,8 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="npm.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/Wallet/js/npm.js">
+      <file leaf-file-name="npm.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/WalletApp/static/Wallet/js/npm.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -273,6 +347,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Wallet" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Wallet" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Wallet" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -290,18 +378,18 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/WalletApp" />
       <recent name="$PROJECT_DIR$/Wallet/static/Wallet/js" />
       <recent name="$PROJECT_DIR$/Wallet/static/Wallet/css" />
       <recent name="$PROJECT_DIR$/Wallet/templates" />
       <recent name="$PROJECT_DIR$/Wallet/templates/Wallet" />
-      <recent name="$PROJECT_DIR$/WalletApp" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/WalletApp" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/Wallet/static/Wallet/css" />
       <recent name="$PROJECT_DIR$/Wallet/static/Wallet" />
       <recent name="$PROJECT_DIR$/Wallet/static" />
-      <recent name="$PROJECT_DIR$/templates" />
     </key>
   </component>
   <component name="RunManager" selected="Django server.WalletApp">
@@ -581,9 +669,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2714055" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2714055" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32739726" sideWeight="0.51615506" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -650,14 +738,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Wallet/templates/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="109" column="10" selection-start-line="109" selection-start-column="10" selection-end-line="109" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Wallet/templates/baseInterna.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -732,7 +812,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/Wallet/css/bootstrap.css">
+    <entry file="file://$PROJECT_DIR$/WalletApp/static/Wallet/css/bootstrap.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.47008547">
           <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
@@ -746,14 +826,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/Wallet/font-awesome/css/font-awesome.css">
+    <entry file="file://$PROJECT_DIR$/WalletApp/static/Wallet/font-awesome/css/font-awesome.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/Wallet/js/jquery-1.10.2.js">
+    <entry file="file://$PROJECT_DIR$/WalletApp/static/Wallet/js/jquery-1.10.2.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -767,14 +847,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/Wallet/css/morris.css">
+    <entry file="file://$PROJECT_DIR$/WalletApp/static/Wallet/css/morris.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/Wallet/css/example.css">
+    <entry file="file://$PROJECT_DIR$/WalletApp/static/Wallet/css/example.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.12958963">
           <caret line="4" column="5" selection-start-line="4" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
@@ -795,7 +875,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/Wallet/css/login-register.css">
+    <entry file="file://$PROJECT_DIR$/WalletApp/static/Wallet/css/login-register.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="5.961123">
           <caret line="185" column="17" selection-start-line="185" selection-start-column="0" selection-end-line="186" selection-end-column="0" />
@@ -823,63 +903,63 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/Wallet/js/login-register.js">
+    <entry file="file://$PROJECT_DIR$/WalletApp/static/Wallet/js/login-register.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.45356372">
           <caret line="21" column="20" selection-start-line="21" selection-start-column="12" selection-end-line="21" selection-end-column="20" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/Wallet/js/morris.min.js">
+    <entry file="file://$PROJECT_DIR$/WalletApp/static/Wallet/js/morris.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/Wallet/js/morris.js">
+    <entry file="file://$PROJECT_DIR$/WalletApp/static/Wallet/js/morris.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.032397408">
           <caret line="1657" column="22" selection-start-line="1657" selection-start-column="18" selection-end-line="1657" selection-end-column="22" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/Wallet/js/jquery.js">
+    <entry file="file://$PROJECT_DIR$/WalletApp/static/Wallet/js/jquery.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.09719223">
           <caret line="3" column="84" selection-start-line="3" selection-start-column="84" selection-end-line="3" selection-end-column="84" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/Wallet/js/Gruntfile.js">
+    <entry file="file://$PROJECT_DIR$/WalletApp/static/Wallet/js/Gruntfile.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.5226782">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/Wallet/js/example.js">
+    <entry file="file://$PROJECT_DIR$/WalletApp/static/Wallet/js/example.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/Wallet/js/etiqueta-cuenta.js">
+    <entry file="file://$PROJECT_DIR$/WalletApp/static/Wallet/js/etiqueta-cuenta.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.09719223">
           <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="18" selection-end-column="3" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/Wallet/js/jquery-ui.custom.min.js">
+    <entry file="file://$PROJECT_DIR$/WalletApp/static/Wallet/js/jquery-ui.custom.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/Wallet/js/bootstrap-datetimepicker.fiser.js">
+    <entry file="file://$PROJECT_DIR$/WalletApp/static/Wallet/js/bootstrap-datetimepicker.fiser.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.51605505">
           <caret line="15" column="3" selection-start-line="15" selection-start-column="3" selection-end-line="15" selection-end-column="3" />
@@ -1014,21 +1094,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/Wallet/js/npm.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/WalletApp/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7586207">
+        <state vertical-scroll-proportion="-12.222222">
           <caret line="87" column="0" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
           <folding>
             <element signature="e#382#431#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WalletApp/static/Wallet/js/npm.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
