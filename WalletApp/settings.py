@@ -78,7 +78,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'WalletApp.wsgi.application'
+WSGI_APPLICATION = 'Wallet.wsgi.application'
 
 
 # Database
