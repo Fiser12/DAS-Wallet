@@ -15,7 +15,7 @@ from django.conf.global_settings import DATABASES
 import os
 import dj_database_url
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 
 # Quick-start development settings - unsuitable for production
@@ -27,7 +27,7 @@ SECRET_KEY = '2iq5bsc8sk011^002-&ki6$l9fu2!wo=+37!t5wm)!my(y*yq6'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 # Application definition
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
@@ -84,6 +84,8 @@ WSGI_APPLICATION = 'WalletApp.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 DATABASES['default'] = dj_database_url.config()
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
 #DATABASES = {
 #    'default': {
 #        'NAME': 'Wallet',
