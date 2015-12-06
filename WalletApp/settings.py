@@ -118,5 +118,5 @@ TEMPLATE_DIRS = (
     os.path.join(BASE_DIR, 'templates'),
 )
 STATIC_ROOT = 'staticfiles'
-STATICFILES_DIRS = (os.path.join(BASE_DIR, '../Wallet/static'),)
+STATICFILES_DIRS = (os.path.join(BASE_DIR, '../WalletApp/static'),)
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
