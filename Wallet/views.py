@@ -132,7 +132,7 @@ def ApunteCreate(request):
     dinero = request.POST.get('dinero', '')
     cuentaOrigenNumero = request.POST.get('cuentaOrigen', '')
     cuentaDestinoNumero = request.POST.get('cuentaDestino', '')
-    if cuentaOrigenNumero is not 0 and cuentaDestinoNumero is not 0:
+    try:
         cuentaOrigen = Cuenta.objects.get(id=int(cuentaOrigenNumero))
         cuentaDestino = Cuenta.objects.get(id=int(cuentaDestinoNumero))
         ingresoGastoTransferencia = request.POST.get('ingresoGastoTransferencia', '')
@@ -158,7 +158,7 @@ def ApunteCreate(request):
             apunte = Apunte(descripcion=descripcion, dinero=dinero, cuentaDestino=cuentaDestino, cuentaOrigen=cuentaOrigen, ingresoGastoTransferencia=numero, fecha=fechaProcesada, categoria=categoria, createdBy2=request.user)
             apunte.save()
         return HttpResponseRedirect(request.META.get('HTTP_REFERER','/'))
-    else:
+    except Exception:
         return HttpResponseRedirect(request.META.get('HTTP_REFERER','/'))
 
 def CuentaCreate(request):
