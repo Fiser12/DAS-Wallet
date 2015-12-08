@@ -94,7 +94,7 @@ def loggedin(request):
                                'apunte_list': Apunte.objects.all().filter(createdBy2=request.user.id).order_by('-fecha'),
                                'dinero': dinero,
                                'arrayDatos': arrayFinal,
-                               'apuntesOrdenados': GetTendencias()})
+                               'apuntesOrdenados': GetTendencias(request)})
 
 def invalid_login(request):
     return render_to_response('invalid_login.html')
@@ -324,8 +324,8 @@ def CuentaPanel(request, id):
                                'dinero': dinero,
                                'arrayDatos': arrayFinal})
 
-def GetTendencias():
-    apuntes = Apunte.objects.order_by("fecha")
+def GetTendencias(request):
+    apuntes = Apunte.objects.order_by("fecha").filter(createdBy2=request.user.id)
     now = datetime.now()
     if now.month==2&now.day==29:
         lastYear = date(now.year-1, now.month, now.day-1)
