@@ -455,7 +455,7 @@ def ViewCreateApunte(request, id):
         dinero = request.POST.get('dinero', '')
         cuentaOrigenNumero = request.POST.get('cuentaOrigen', '')
         cuentaDestinoNumero = request.POST.get('cuentaDestino', '')
-        if cuentaDestinoNumero is None and cuentaOrigenNumero is None:
+        if not (cuentaDestinoNumero is None and cuentaOrigenNumero is None):
             cuentaOrigen = Cuenta.objects.get(id=int(cuentaOrigenNumero))
             cuentaDestino = Cuenta.objects.get(id=int(cuentaDestinoNumero))
             ingresoGastoTransferencia = request.POST.get('ingresoGastoTransferencia', '')
