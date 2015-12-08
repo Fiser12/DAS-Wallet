@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b49d8f3a-0a4a-42d1-ab49-975ddc07dbdf" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Wallet/views.py" afterPath="$PROJECT_DIR$/Wallet/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="WalletApp.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -126,8 +124,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Wallet/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.89346594">
-              <caret line="490" column="67" selection-start-line="490" selection-start-column="67" selection-end-line="490" selection-end-column="67" />
+            <state vertical-scroll-proportion="0.8082386">
+              <caret line="488" column="52" selection-start-line="488" selection-start-column="46" selection-end-line="488" selection-end-column="52" />
               <folding>
                 <element signature="e#0#57#0" expanded="true" />
               </folding>
@@ -1033,8 +1031,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Wallet/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.89346594">
-          <caret line="490" column="67" selection-start-line="490" selection-start-column="67" selection-end-line="490" selection-end-column="67" />
+        <state vertical-scroll-proportion="0.8082386">
+          <caret line="488" column="52" selection-start-line="488" selection-start-column="46" selection-end-line="488" selection-end-column="52" />
           <folding>
             <element signature="e#0#57#0" expanded="true" />
           </folding>

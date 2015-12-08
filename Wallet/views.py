@@ -451,44 +451,45 @@ def EditarCategorias(request):
                                'today': time.strftime("%Y-%m-%d")})
 
 def ViewCreateApunte(request, id):
-    try:
         descripcion = request.POST.get('descripcion', '')
         dinero = request.POST.get('dinero', '')
         cuentaOrigenNumero = request.POST.get('cuentaOrigen', '')
-        cuentaOrigen = Cuenta.objects.get(id=int(cuentaOrigenNumero))
         cuentaDestinoNumero = request.POST.get('cuentaDestino', '')
-        cuentaDestino = Cuenta.objects.get(id=int(cuentaDestinoNumero))
-        ingresoGastoTransferencia = request.POST.get('ingresoGastoTransferencia', '')
-        numero = 0
-        continuar = True;
-        if ingresoGastoTransferencia=="Ingreso":
-            numero = 1
-            cuentaDestino = cuentaOrigen
+        if cuentaDestinoNumero is None and cuentaOrigenNumero is None:
+            cuentaOrigen = Cuenta.objects.get(id=int(cuentaOrigenNumero))
+            cuentaDestino = Cuenta.objects.get(id=int(cuentaDestinoNumero))
+            ingresoGastoTransferencia = request.POST.get('ingresoGastoTransferencia', '')
+            numero = 0
+            continuar = True;
+            if ingresoGastoTransferencia=="Ingreso":
+                numero = 1
+                cuentaDestino = cuentaOrigen
 
-        elif ingresoGastoTransferencia=="Gasto":
-            numero = 2
-            cuentaDestino = cuentaOrigen
+            elif ingresoGastoTransferencia=="Gasto":
+                numero = 2
+                cuentaDestino = cuentaOrigen
 
-        elif ingresoGastoTransferencia=="Transferencia":
-            numero = 3
-            if cuentaOrigenNumero == cuentaDestinoNumero:
-                continuar = False
-        if continuar:
-            fecha = request.POST.get('fecha', '')
-            categoriaString = request.POST.get('categoria', '')
-            categoria = Categoria.objects.get(id=int(categoriaString))
-            fechaProcesada= datetime.strptime(fecha, '%m/%d/%Y')
-            apunte = Apunte(id=id, descripcion=descripcion, ingresoGastoTransferencia=numero, dinero=dinero, fecha=fechaProcesada, categoria=categoria, cuentaDestino=cuentaDestino, cuentaOrigen=cuentaOrigen )
-            apunte.save()
-        return render_to_response('crearApunte.html',{'full_name': request.user.username,
+            elif ingresoGastoTransferencia=="Transferencia":
+                numero = 3
+                if cuentaOrigenNumero == cuentaDestinoNumero:
+                    continuar = False
+            if continuar:
+                fecha = request.POST.get('fecha', '')
+                categoriaString = request.POST.get('categoria', '')
+                categoria = Categoria.objects.get(id=int(categoriaString))
+                fechaProcesada= datetime.strptime(fecha, '%m/%d/%Y')
+                apunte = Apunte(id=id, descripcion=descripcion, ingresoGastoTransferencia=numero, dinero=dinero, fecha=fechaProcesada, categoria=categoria, cuentaDestino=cuentaDestino, cuentaOrigen=cuentaOrigen )
+                apunte.save()
+            return render_to_response('crearApunte.html',{'full_name': request.user.username,
                                'object_list': Cuenta.objects.filter(owner=request.user.id),
                                'categoria_list': Categoria.objects.filter(createdBy=request.user.id),
                                'today': time.strftime("%Y-%m-%d")})
-    except Exception:
-        return render_to_response('crearApunte.html',{'full_name': request.user.username,
+        else:
+            return render_to_response('crearApunte.html',{'full_name': request.user.username,
                                'object_list': Cuenta.objects.filter(owner=request.user.id),
                                'categoria_list': Categoria.objects.filter(createdBy=request.user.id),
                                'today': time.strftime("%Y-%m-%d")})
+
 def getApuntes(request):
     if request.is_ajax():
         data = []
